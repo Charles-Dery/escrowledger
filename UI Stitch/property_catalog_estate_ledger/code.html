@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Property Catalog - Estate Ledger</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "primary-fixed-dim": "#adc7f7",
+                      "on-surface-variant": "#43474e",
+                      "error": "#ba1a1a",
+                      "surface-tint": "#455f88",
+                      "on-surface": "#181c1e",
+                      "on-error-container": "#93000a",
+                      "primary": "#002045",
+                      "on-tertiary": "#ffffff",
+                      "background": "#f7fafc",
+                      "on-tertiary-fixed-variant": "#3c475a",
+                      "outline-variant": "#c4c6cf",
+                      "secondary": "#006a68",
+                      "surface-variant": "#e0e3e5",
+                      "on-secondary-container": "#006e6d",
+                      "inverse-surface": "#2d3133",
+                      "on-background": "#181c1e",
+                      "surface-dim": "#d7dadc",
+                      "on-primary-fixed": "#001b3c",
+                      "secondary-fixed": "#94f2f0",
+                      "on-primary-container": "#86a0cd",
+                      "tertiary": "#162132",
+                      "on-secondary-fixed": "#00201f",
+                      "on-error": "#ffffff",
+                      "inverse-on-surface": "#eef1f3",
+                      "on-tertiary-fixed": "#111c2c",
+                      "error-container": "#ffdad6",
+                      "primary-container": "#1a365d",
+                      "surface-container-highest": "#e0e3e5",
+                      "tertiary-fixed": "#d8e3fa",
+                      "surface": "#f7fafc",
+                      "on-primary-fixed-variant": "#2d476f",
+                      "surface-container": "#ebeef0",
+                      "on-secondary": "#ffffff",
+                      "secondary-fixed-dim": "#77d6d3",
+                      "surface-container-low": "#f1f4f6",
+                      "outline": "#74777f",
+                      "on-primary": "#ffffff",
+                      "secondary-container": "#91f0ed",
+                      "primary-fixed": "#d6e3ff",
+                      "on-tertiary-container": "#949fb4",
+                      "surface-bright": "#f7fafc",
+                      "on-secondary-fixed-variant": "#00504e",
+                      "tertiary-fixed-dim": "#bcc7dd",
+                      "tertiary-container": "#2b3648",
+                      "surface-container-lowest": "#ffffff",
+                      "inverse-primary": "#adc7f7",
+                      "surface-container-high": "#e5e9eb"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {},
+              "fontFamily": {
+                      "headline": [
+                              "Manrope"
+                      ],
+                      "body": [
+                              "Inter"
+                      ],
+                      "label": [
+                              "Inter"
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+<style>
+        body {
+            background-color: theme('colors.background');
+            color: theme('colors.on-background');
+            font-family: theme('fontFamily.body');
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: theme('fontFamily.headline');
+        }
+      </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col md:flex-row">
+<!-- SideNavBar (Web Only) -->
+<nav aria-label="Sidebar Navigation" class="hidden md:flex flex-col p-6 gap-4 border-r border-slate-200/50 dark:border-slate-800/50 bg-slate-50 dark:bg-slate-950 h-screen w-64 fixed left-0 top-0 z-40 transition-colors via-surface-container-low">
+<div class="flex items-center gap-3 mb-8">
+<div class="w-8 h-8 rounded bg-primary text-on-primary flex items-center justify-center font-headline font-bold">EL</div>
+<div>
+<div class="text-lg font-bold text-blue-900 dark:text-blue-400 font-headline">Management</div>
+<div class="text-xs text-on-surface-variant font-body">Admin Console</div>
+</div>
+</div>
+<div class="flex flex-col gap-2 flex-grow">
+<!-- Active: Catalog maps to Inventory intent -->
+<a class="flex items-center gap-3 p-3 bg-white dark:bg-slate-900 text-teal-700 dark:text-teal-400 shadow-sm rounded-lg font-manrope text-sm font-medium scale-98 transition-transform group" href="#">
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform duration-200" style="font-variation-settings: 'FILL' 1;">domain</span>
+                Inventory
+            </a>
+<a class="flex items-center gap-3 p-3 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg font-manrope text-sm font-medium transition-colors group" href="#">
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform duration-200">analytics</span>
+                Analytics
+            </a>
+<a class="flex items-center gap-3 p-3 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg font-manrope text-sm font-medium transition-colors group" href="#">
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform duration-200">fact_check</span>
+                Approvals
+            </a>
+<a class="flex items-center gap-3 p-3 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg font-manrope text-sm font-medium transition-colors group" href="#">
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform duration-200">group</span>
+                Users
+            </a>
+<a class="flex items-center gap-3 p-3 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg font-manrope text-sm font-medium transition-colors group" href="#">
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform duration-200">description</span>
+                Reports
+            </a>
+</div>
+<button class="mt-4 w-full bg-gradient-to-br from-primary to-primary-container text-on-primary py-3 rounded-full font-body text-sm font-medium hover:opacity-90 transition-opacity flex justify-center items-center gap-2">
+<span class="material-symbols-outlined text-sm">add</span> Add Property
+        </button>
+<div class="mt-auto pt-4 border-t border-slate-200/50 dark:border-slate-800/50">
+<a class="flex items-center gap-3 p-3 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg font-manrope text-sm font-medium transition-colors group" href="#">
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform duration-200">help</span>
+                Help Center
+            </a>
+</div>
+</nav>
+<!-- Main Content Area -->
+<div class="flex-1 md:ml-64 flex flex-col min-h-screen relative">
+<!-- TopNavBar -->
+<header class="flex justify-between items-center px-8 h-20 w-full max-w-screen-2xl mx-auto bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl text-slate-900 dark:text-slate-50 docked full-width top-0 sticky z-50">
+<div class="flex items-center gap-6">
+<!-- Mobile Menu Button -->
+<button class="md:hidden text-on-surface-variant hover:text-on-surface transition-colors p-2 rounded-lg hover:bg-surface-variant">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<div class="text-xl font-extrabold tracking-tighter text-blue-900 dark:text-blue-400 font-headline md:hidden">Estate Ledger</div>
+</div>
+<div class="hidden md:flex items-center gap-8 font-headline font-bold tracking-tight">
+<a class="text-teal-700 dark:text-teal-400 font-semibold border-b-2 border-teal-700 dark:border-teal-400 pb-1 opacity-80 scale-95 transition-all" href="#">Catalog</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 transition-colors" href="#">Dashboard</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 transition-colors" href="#">Agents</a>
+</div>
+<div class="flex items-center gap-4">
+<!-- Search Bar -->
+<div class="relative hidden sm:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-sm">search</span>
+<input class="bg-surface-container-highest border-0 rounded-full py-2 pl-10 pr-4 text-sm font-body text-on-surface focus:ring-2 focus:ring-primary/40 focus:bg-surface-container-lowest transition-all w-64 placeholder:text-on-surface-variant" placeholder="Search properties..." type="text"/>
+</div>
+<button class="p-2 text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800/50 rounded-full transition-colors flex items-center justify-center">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800/50 rounded-full transition-colors flex items-center justify-center">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<div class="w-8 h-8 rounded-full bg-surface-variant overflow-hidden border-2 border-surface-container-lowest">
+<img alt="Admin Profile" class="w-full h-full object-cover" data-alt="Professional headshot of a person in business attire against a neutral background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBFWAOM1864uZDnrthXej_KFshV_u087M3vjpiyvOLzPBbXu3q2aK_6nvjbULc2CfjYIBMeZ8monMYQWOsVfFKJxA-h4iWEUqcLKmeaXy4n1mFGXdd4wMv7h-yoKIe2Sc9ZC48cJZ8D5KYZ4ig5jZPmaqtLkZoGFA4qBsO-qxX99a6X_kVPRiaxiAd9AIljvVuanXATbVzsnLfjhKSUh9dYZPcNL5E5OUsJnhAyrdOsYjMh0LwkP9BhGf_HSz5rDiRVV7D2kb8CPu8"/>
+</div>
+</div>
+</header>
+<!-- Page Content -->
+<main class="flex-1 p-6 md:p-8 max-w-screen-2xl mx-auto w-full flex flex-col lg:flex-row gap-8">
+<!-- Filters Sidebar (Desktop) / Filter Modal Trigger (Mobile) -->
+<aside class="w-full lg:w-72 flex-shrink-0">
+<div class="lg:sticky lg:top-28 bg-surface-container-lowest rounded-xl p-6">
+<div class="flex items-center justify-between mb-6">
+<h2 class="font-headline font-bold text-lg text-on-surface">Filters</h2>
+<button class="text-sm font-body font-medium text-secondary hover:opacity-80 transition-opacity">Clear All</button>
+</div>
+<div class="space-y-6">
+<!-- Location -->
+<div>
+<label class="block font-body text-sm font-medium text-on-surface mb-2">Location</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-sm">location_on</span>
+<input class="w-full bg-surface-container-highest border-0 rounded-lg py-2.5 pl-10 pr-4 text-sm font-body text-on-surface focus:ring-2 focus:ring-primary/40 focus:bg-surface-container-lowest transition-all" placeholder="City, Zip, or Neighborhood" type="text"/>
+</div>
+</div>
+<!-- Price Range -->
+<div>
+<label class="block font-body text-sm font-medium text-on-surface mb-2">Price Range</label>
+<div class="flex items-center gap-2">
+<input class="w-full bg-surface-container-highest border-0 rounded-lg py-2.5 px-3 text-sm font-body text-on-surface focus:ring-2 focus:ring-primary/40 focus:bg-surface-container-lowest transition-all" placeholder="$ Min" type="text"/>
+<span class="text-on-surface-variant">-</span>
+<input class="w-full bg-surface-container-highest border-0 rounded-lg py-2.5 px-3 text-sm font-body text-on-surface focus:ring-2 focus:ring-primary/40 focus:bg-surface-container-lowest transition-all" placeholder="$ Max" type="text"/>
+</div>
+</div>
+<!-- Property Type -->
+<div>
+<label class="block font-body text-sm font-medium text-on-surface mb-2">Property Type</label>
+<div class="space-y-2">
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="w-4 h-4 rounded text-primary focus:ring-primary border-outline-variant bg-surface-container-highest" type="checkbox"/>
+<span class="font-body text-sm text-on-surface group-hover:text-primary transition-colors">Single Family Home</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<input checked="" class="w-4 h-4 rounded text-primary focus:ring-primary border-outline-variant bg-surface-container-highest" type="checkbox"/>
+<span class="font-body text-sm text-on-surface group-hover:text-primary transition-colors">Luxury Condo</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="w-4 h-4 rounded text-primary focus:ring-primary border-outline-variant bg-surface-container-highest" type="checkbox"/>
+<span class="font-body text-sm text-on-surface group-hover:text-primary transition-colors">Townhouse</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="w-4 h-4 rounded text-primary focus:ring-primary border-outline-variant bg-surface-container-highest" type="checkbox"/>
+<span class="font-body text-sm text-on-surface group-hover:text-primary transition-colors">Commercial</span>
+</label>
+</div>
+</div>
+<!-- Beds & Baths -->
+<div>
+<label class="block font-body text-sm font-medium text-on-surface mb-2">Beds &amp; Baths</label>
+<div class="grid grid-cols-2 gap-4">
+<div>
+<select class="w-full bg-surface-container-highest border-0 rounded-lg py-2.5 px-3 text-sm font-body text-on-surface focus:ring-2 focus:ring-primary/40 focus:bg-surface-container-lowest transition-all appearance-none">
+<option>Beds (Any)</option>
+<option>1+</option>
+<option>2+</option>
+<option>3+</option>
+<option>4+</option>
+</select>
+</div>
+<div>
+<select class="w-full bg-surface-container-highest border-0 rounded-lg py-2.5 px-3 text-sm font-body text-on-surface focus:ring-2 focus:ring-primary/40 focus:bg-surface-container-lowest transition-all appearance-none">
+<option>Baths (Any)</option>
+<option>1+</option>
+<option>2+</option>
+<option>3+</option>
+</select>
+</div>
+</div>
+</div>
+<button class="w-full bg-gradient-to-br from-primary to-primary-container text-on-primary py-3 rounded-full font-body text-sm font-medium hover:opacity-90 transition-opacity mt-4">
+                            Apply Filters
+                        </button>
+</div>
+</div>
+</aside>
+<!-- Property Grid -->
+<div class="flex-1">
+<div class="flex items-center justify-between mb-6">
+<div>
+<h1 class="font-headline font-extrabold text-2xl md:text-3xl tracking-tight text-on-surface mb-1">Catalog</h1>
+<p class="font-body text-sm text-on-surface-variant">Showing 24 properties matching your criteria</p>
+</div>
+<!-- Sorting -->
+<div class="hidden sm:flex items-center gap-2">
+<span class="font-body text-sm text-on-surface-variant">Sort by:</span>
+<select class="bg-transparent border-0 py-1 pl-2 pr-8 font-body text-sm font-medium text-on-surface focus:ring-0 cursor-pointer appearance-none">
+<option>Newest Listing</option>
+<option>Price: High to Low</option>
+<option>Price: Low to High</option>
+</select>
+<span class="material-symbols-outlined text-on-surface-variant text-sm -ml-6 pointer-events-none">expand_more</span>
+</div>
+</div>
+<!-- Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+<!-- Property Card 1 -->
+<article class="group bg-surface-container-lowest rounded-xl overflow-hidden flex flex-col transition-colors duration-300 hover:bg-surface-container-high cursor-pointer relative">
+<div class="relative aspect-[4/3] overflow-hidden">
+<img alt="Modern exterior" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Modern luxury mansion exterior at twilight with glowing interior lights, infinity pool reflecting the sky, architectural asymmetry" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCweSkfHHeCukRxU3N59b9WelVR5Lu4KfFDM6v9r75KRq9zfabOBzz6F8q6jqafyyUUHWtdsy6JGwWBJMMpgqgNRX817VeAd1NnX-wUXeIvfldqgrS71qQ2-us3GKlKiZj678thPD10BTa1sbQ6eKI3FNFqcXNCpu6k8rnPvp2e4oI8le7-nJRFsU96KGEU_yyInm0yRH2Ntgf_QoFjLV-naJWlgPNV73FE-c0xUc8TqCp6K41cI1Ex-zT-mmmWzLh9c5BiueoCSbc"/>
+<div class="absolute top-4 left-4 bg-surface-container-lowest/90 backdrop-blur-md px-3 py-1 rounded-full flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="font-body text-xs font-semibold text-on-surface uppercase tracking-wide">Active</span>
+</div>
+<button class="absolute top-4 right-4 w-8 h-8 rounded-full bg-surface-container-lowest/80 backdrop-blur-md flex items-center justify-center text-on-surface-variant hover:text-error transition-colors">
+<span class="material-symbols-outlined text-sm">favorite</span>
+</button>
+</div>
+<div class="p-5 flex flex-col flex-1">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline font-bold text-xl text-on-surface tracking-tight leading-tight">$4,250,000</h3>
+<span class="font-body text-xs font-medium text-secondary bg-secondary/10 px-2 py-1 rounded">Reduced</span>
+</div>
+<p class="font-body text-sm text-on-surface-variant mb-4 line-clamp-1">1042 Highbourne Way, Beverly Hills, CA 90210</p>
+<div class="mt-auto grid grid-cols-3 gap-2 pt-4 border-t border-outline-variant/15">
+<div class="flex items-center gap-1.5 text-on-surface">
+<span class="material-symbols-outlined text-sm text-on-surface-variant">bed</span>
+<span class="font-body text-sm font-medium">5 <span class="text-on-surface-variant font-normal">bd</span></span>
+</div>
+<div class="flex items-center gap-1.5 text-on-surface">
+<span class="material-symbols-outlined text-sm text-on-surface-variant">shower</span>
+<span class="font-body text-sm font-medium">6.5 <span class="text-on-surface-variant font-normal">ba</span></span>
+</div>
+<div class="flex items-center gap-1.5 text-on-surface">
+<span class="material-symbols-outlined text-sm text-on-surface-variant">straighten</span>
+<span class="font-body text-sm font-medium">6,200 <span class="text-on-surface-variant font-normal">sqft</span></span>
+</div>
+</div>
+</div>
+</article>
+<!-- Property Card 2 -->
+<article class="group bg-surface-container-lowest rounded-xl overflow-hidden flex flex-col transition-colors duration-300 hover:bg-surface-container-high cursor-pointer relative">
+<div class="relative aspect-[4/3] overflow-hidden">
+<img alt="Minimalist interior" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Minimalist modern living room with floor to ceiling windows, natural light, white oak floors, low profile designer furniture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBYOZHpHeeEp43dw-suZwOjiSI71J4joxQzA6fNEDafil9R7DcWbgaoFvnX6UKdFMDbbHfJiSnSKwEQfev41LroNNBfD-2LLycfvej7tVYr4u0QYyziIcsuF2Lm4tpyrclU6vd0M5kUfGJYSlSZT8rGuuSg1T42JQmHsyPdoTrtjaj8z_M0pGI1PTV-USkaJ4EGEswxGBDPg4KSXe9JDVh7oD5X_PuhupUTWuFtALff7fZihUJLSDKIl1sFF2z5rIZM90hOehWhvuo"/>
+<div class="absolute top-4 left-4 bg-surface-container-lowest/90 backdrop-blur-md px-3 py-1 rounded-full flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="font-body text-xs font-semibold text-on-surface uppercase tracking-wide">Active</span>
+</div>
+</div>
+<div class="p-5 flex flex-col flex-1">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline font-bold text-xl text-on-surface tracking-tight leading-tight">$2,895,000</h3>
+</div>
+<p class="font-body text-sm text-on-surface-variant mb-4 line-clamp-1">880 Skyline Blvd, Austin, TX 78704</p>
+<div class="mt-auto grid grid-cols-3 gap-2 pt-4 border-t border-outline-variant/15">
+<div class="flex items-center gap-1.5 text-on-surface">
+<span class="material-symbols-outlined text-sm text-on-surface-variant">bed</span>
+<span class="font-body text-sm font-medium">4 <span class="text-on-surface-variant font-normal">bd</span></span>
+</div>
+<div class="flex items-center gap-1.5 text-on-surface">
+<span class="material-symbols-outlined text-sm text-on-surface-variant">shower</span>
+<span class="font-body text-sm font-medium">4 <span class="text-on-surface-variant font-normal">ba</span></span>
+</div>
+<div class="flex items-center gap-1.5 text-on-surface">
+<span class="material-symbols-outlined text-sm text-on-surface-variant">straighten</span>
+<span class="font-body text-sm font-medium">4,150 <span class="text-on-surface-variant font-normal">sqft</span></span>
+</div>
+</div>
+</div>
+</article>
+<!-- Property Card 3 (Pending) -->
+<article class="group bg-surface-container-lowest rounded-xl overflow-hidden flex flex-col transition-colors duration-300 hover:bg-surface-container-high cursor-pointer relative">
+<div class="relative aspect-[4/3] overflow-hidden">
+<img alt="Penthouse view" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 grayscale-[30%]" data-alt="High-end penthouse apartment terrace at sunset overlooking a dense urban cityscape, glass railings, lounge seating" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBM4X40XN-PRxD_0OiP6vuui7E_kIGzlZMx5XUraydb9XFBwllcqv9gpOG4ZW3v1lGkzxkzQlfKz9K6WQRdBoMDO48uENaCCqIXKFCoLgKTEI5K1UvSZX9u015nb1g4_V6o_DB2V7nFZDVWEMXFiTw2lsIt8KgcY5Jwhp4zKxPzQUl7WVxL25gYMLh184G3LJWkZZUyvoAY7njc68iUKNq7G3gyVrsFr_dhI6y0yiuT5Eg62D9jVxxUtgf1VGsPwM2NL7qiKz1031c"/>
+<div class="absolute inset-0 bg-surface/20"></div>
+<div class="absolute top-4 left-4 bg-surface-container-highest/90 backdrop-blur-md px-3 py-1 rounded-full flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-outline"></span>
+<span class="font-body text-xs font-semibold text-on-surface-variant uppercase tracking-wide">Pending</span>
+</div>
+</div>
+<div class="p-5 flex flex-col flex-1 opacity-80">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline font-bold text-xl text-on-surface tracking-tight leading-tight">$5,100,000</h3>
+</div>
+<p class="font-body text-sm text-on-surface-variant mb-4 line-clamp-1">450 W 17th St, Penthouse A, New York, NY 10011</p>
+<div class="mt-auto grid grid-cols-3 gap-2 pt-4 border-t border-outline-variant/15">
+<div class="flex items-center gap-1.5 text-on-surface">
+<span class="material-symbols-outlined text-sm text-on-surface-variant">bed</span>
+<span class="font-body text-sm font-medium">3 <span class="text-on-surface-variant font-normal">bd</span></span>
+</div>
+<div class="flex items-center gap-1.5 text-on-surface">
+<span class="material-symbols-outlined text-sm text-on-surface-variant">shower</span>
+<span class="font-body text-sm font-medium">3.5 <span class="text-on-surface-variant font-normal">ba</span></span>
+</div>
+<div class="flex items-center gap-1.5 text-on-surface">
+<span class="material-symbols-outlined text-sm text-on-surface-variant">straighten</span>
+<span class="font-body text-sm font-medium">3,800 <span class="text-on-surface-variant font-normal">sqft</span></span>
+</div>
+</div>
+</div>
+</article>
+<!-- Property Card 4 -->
+<article class="group bg-surface-container-lowest rounded-xl overflow-hidden flex flex-col transition-colors duration-300 hover:bg-surface-container-high cursor-pointer relative">
+<div class="relative aspect-[4/3] overflow-hidden">
+<img alt="Mountain home" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Architectural modern mountain home with dark wood siding, large glass windows reflecting pine trees, overcast moody lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCyJPdgUX44N25oL2W-FpqykXlhklExFPuD088y8rEEfV_lXTnknoGWB3d_58udCeaBMPBnk-yhDW-CuwAdH2iEV7uTGL9GtF3Ilx7jIKe-zfPhWOyVl_5MykBbxBSDFvZ3WVDME3Tu6OzoyZ3w-Vm8SFLioKM6YqQm82t7r81naE3rMBlRV4zy_0Dh2ZCmw8WkKkkVrQrmngfTjUoAG4nUh6ZPWTms8scrVrTk9NEH1Y4EyJrxFNGvhmii01m4X27y1IL2bEO2V84"/>
+<div class="absolute top-4 left-4 bg-surface-container-lowest/90 backdrop-blur-md px-3 py-1 rounded-full flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="font-body text-xs font-semibold text-on-surface uppercase tracking-wide">Active</span>
+</div>
+</div>
+<div class="p-5 flex flex-col flex-1">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline font-bold text-xl text-on-surface tracking-tight leading-tight">$1,950,000</h3>
+</div>
+<p class="font-body text-sm text-on-surface-variant mb-4 line-clamp-1">204 Pine Ridge Rd, Boulder, CO 80302</p>
+<div class="mt-auto grid grid-cols-3 gap-2 pt-4 border-t border-outline-variant/15">
+<div class="flex items-center gap-1.5 text-on-surface">
+<span class="material-symbols-outlined text-sm text-on-surface-variant">bed</span>
+<span class="font-body text-sm font-medium">4 <span class="text-on-surface-variant font-normal">bd</span></span>
+</div>
+<div class="flex items-center gap-1.5 text-on-surface">
+<span class="material-symbols-outlined text-sm text-on-surface-variant">shower</span>
+<span class="font-body text-sm font-medium">3 <span class="text-on-surface-variant font-normal">ba</span></span>
+</div>
+<div class="flex items-center gap-1.5 text-on-surface">
+<span class="material-symbols-outlined text-sm text-on-surface-variant">straighten</span>
+<span class="font-body text-sm font-medium">3,200 <span class="text-on-surface-variant font-normal">sqft</span></span>
+</div>
+</div>
+</div>
+</article>
+</div>
+<!-- Pagination -->
+<div class="mt-10 flex items-center justify-center gap-2">
+<button class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center text-on-surface-variant hover:bg-surface-container-low transition-colors" disabled="">
+<span class="material-symbols-outlined text-sm">chevron_left</span>
+</button>
+<button class="w-10 h-10 rounded-full bg-primary text-on-primary font-body text-sm font-medium">1</button>
+<button class="w-10 h-10 rounded-full bg-surface-container-lowest text-on-surface font-body text-sm font-medium hover:bg-surface-container-highest transition-colors">2</button>
+<button class="w-10 h-10 rounded-full bg-surface-container-lowest text-on-surface font-body text-sm font-medium hover:bg-surface-container-highest transition-colors">3</button>
+<span class="text-on-surface-variant">...</span>
+<button class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center text-on-surface-variant hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+</button>
+</div>
+</div>
+</main>
+</div>
+</body></html>

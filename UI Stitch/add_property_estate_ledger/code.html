@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Add New Property - Estate Ledger</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Manrope:wght@500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary-fixed-dim": "#adc7f7",
+                        "on-surface-variant": "#43474e",
+                        "error": "#ba1a1a",
+                        "surface-tint": "#455f88",
+                        "on-surface": "#181c1e",
+                        "on-error-container": "#93000a",
+                        "primary": "#002045",
+                        "on-tertiary": "#ffffff",
+                        "background": "#f7fafc",
+                        "on-tertiary-fixed-variant": "#3c475a",
+                        "outline-variant": "#c4c6cf",
+                        "secondary": "#006a68",
+                        "surface-variant": "#e0e3e5",
+                        "on-secondary-container": "#006e6d",
+                        "inverse-surface": "#2d3133",
+                        "on-background": "#181c1e",
+                        "surface-dim": "#d7dadc",
+                        "on-primary-fixed": "#001b3c",
+                        "secondary-fixed": "#94f2f0",
+                        "on-primary-container": "#86a0cd",
+                        "tertiary": "#162132",
+                        "on-secondary-fixed": "#00201f",
+                        "on-error": "#ffffff",
+                        "inverse-on-surface": "#eef1f3",
+                        "on-tertiary-fixed": "#111c2c",
+                        "error-container": "#ffdad6",
+                        "primary-container": "#1a365d",
+                        "surface-container-highest": "#e0e3e5",
+                        "tertiary-fixed": "#d8e3fa",
+                        "surface": "#f7fafc",
+                        "on-primary-fixed-variant": "#2d476f",
+                        "surface-container": "#ebeef0",
+                        "on-secondary": "#ffffff",
+                        "secondary-fixed-dim": "#77d6d3",
+                        "surface-container-low": "#f1f4f6",
+                        "outline": "#74777f",
+                        "on-primary": "#ffffff",
+                        "secondary-container": "#91f0ed",
+                        "primary-fixed": "#d6e3ff",
+                        "on-tertiary-container": "#949fb4",
+                        "surface-bright": "#f7fafc",
+                        "on-secondary-fixed-variant": "#00504e",
+                        "tertiary-fixed-dim": "#bcc7dd",
+                        "tertiary-container": "#2b3648",
+                        "surface-container-lowest": "#ffffff",
+                        "inverse-primary": "#adc7f7",
+                        "surface-container-high": "#e5e9eb"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    fontFamily: {
+                        "headline": ["Manrope", "sans-serif"],
+                        "body": ["Inter", "sans-serif"],
+                        "label": ["Inter", "sans-serif"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: theme('colors.surface'); color: theme('colors.on-surface'); }
+        h1, h2, h3, h4, h5, h6, .font-headline { font-family: 'Manrope', sans-serif; }
+        
+        /* Input Focus Styles */
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(0, 32, 69, 0.4); /* primary with opacity */
+            border-color: transparent;
+        }
+        
+        /* Hide scrollbar for cleaner look in sidebars if needed */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: theme('colors.outline-variant'); border-radius: 4px; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface antialiased flex h-screen overflow-hidden">
+<!-- SideNavBar -->
+<nav class="h-screen w-64 fixed left-0 top-0 z-40 bg-slate-50 dark:bg-slate-950 flex flex-col p-6 gap-4 border-r border-slate-200/50 dark:border-slate-800/50" style="background-color: var(--surface-container-low);">
+<div class="mb-8">
+<h1 class="text-lg font-bold text-blue-900 dark:text-blue-400 font-headline tracking-tight">Estate Ledger</h1>
+<p class="text-sm font-medium text-on-surface-variant font-label mt-1">Management</p>
+<p class="text-xs text-on-surface-variant font-label opacity-70">Admin Console</p>
+</div>
+<button class="w-full py-3 px-4 mb-6 rounded-full bg-gradient-to-br from-primary to-primary-container text-on-primary font-body text-sm font-medium hover:opacity-90 transition-opacity flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[18px]">add</span>
+            Add Property
+        </button>
+<div class="flex flex-col gap-2 flex-grow font-manrope text-sm font-medium">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg hover:translate-x-1 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined">domain</span>
+                Inventory
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg hover:translate-x-1 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined">analytics</span>
+                Analytics
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg hover:translate-x-1 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined">fact_check</span>
+                Approvals
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg hover:translate-x-1 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined">group</span>
+                Users
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg hover:translate-x-1 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined">description</span>
+                Reports
+            </a>
+</div>
+<div class="mt-auto">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg hover:translate-x-1 transition-transform duration-200 font-manrope text-sm font-medium" href="#">
+<span class="material-symbols-outlined">help</span>
+                Help Center
+            </a>
+</div>
+</nav>
+<!-- Main Content Area -->
+<main class="ml-64 flex-1 h-screen overflow-y-auto bg-surface flex flex-col relative">
+<!-- TopNavBar (Contextual Header for this view) -->
+<header class="bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl docked full-width top-0 sticky z-50 flex justify-between items-center px-8 h-20 w-full max-w-screen-2xl mx-auto border-b border-outline-variant/15">
+<div class="flex items-center gap-4">
+<button class="text-on-surface-variant hover:text-on-surface transition-colors flex items-center justify-center p-2 rounded-full hover:bg-surface-container">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<h2 class="font-headline font-bold tracking-tight text-2xl text-on-surface">Add New Property</h2>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-on-surface-variant hover:text-on-surface p-2 rounded-full hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<div class="h-8 w-8 rounded-full bg-surface-container-high overflow-hidden border border-outline-variant/30 flex-shrink-0">
+<img alt="Admin Profile" class="w-full h-full object-cover" data-alt="professional headshot of a smiling man in a business suit against a plain grey background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAYXO1qNEs1iOUddXxD8DoUSa4IU1U77FBkJAHbFJEeA67o-D3qJht_miIv5XxT5PpXvJpX0R_k0z64UhWULvawB0xtbAAHL5ZO_7PlyE0nAgULFHZDWlR25SsuXjULFxq680FvxkQL2ad97uC_lmK7CdiiEa7n2VWj4jbYbg9JYbedjTuMxr6e_JFUoVLaZw8m36ngy9wqGdBGCC9125hyiJGPArr_vj5WgMwwzi6FNOthOFwnd8qh3kEqjaQ16AcxTWavQBsIyOQ"/>
+</div>
+</div>
+</header>
+<div class="p-8 max-w-5xl mx-auto w-full pb-24">
+<form class="space-y-12">
+<!-- Section: Basic Information -->
+<section class="flex flex-col md:flex-row gap-8 items-start">
+<div class="md:w-1/3 pt-2">
+<h3 class="font-headline font-bold text-lg text-on-surface tracking-tight mb-1">Basic Information</h3>
+<p class="font-body text-sm text-on-surface-variant">Core details that define the property listing.</p>
+</div>
+<div class="md:w-2/3 bg-surface-container-lowest rounded-xl p-8 hover:bg-surface-container-high transition-colors duration-300">
+<div class="space-y-6">
+<div>
+<label class="block font-label text-sm font-medium text-on-surface mb-2" for="title">Property Title</label>
+<input class="w-full bg-surface-container-highest border-0 rounded-lg py-3 px-4 text-on-surface font-body text-sm focus:ring-0 placeholder-on-surface-variant/50 transition-all" id="title" placeholder="e.g., Modern Penthouse in Downtown" type="text"/>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div>
+<label class="block font-label text-sm font-medium text-on-surface mb-2" for="price">Listing Price</label>
+<div class="relative">
+<span class="absolute left-4 top-3 text-on-surface-variant font-body text-sm">$</span>
+<input class="w-full bg-surface-container-highest border-0 rounded-lg py-3 pl-8 pr-4 text-on-surface font-body text-sm focus:ring-0 placeholder-on-surface-variant/50 transition-all" id="price" placeholder="0.00" type="text"/>
+</div>
+</div>
+<div>
+<label class="block font-label text-sm font-medium text-on-surface mb-2" for="type">Property Type</label>
+<div class="relative">
+<select class="w-full bg-surface-container-highest border-0 rounded-lg py-3 px-4 pr-10 text-on-surface font-body text-sm focus:ring-0 appearance-none transition-all" id="type">
+<option disabled="" selected="" value="">Select type...</option>
+<option value="residential">Residential</option>
+<option value="commercial">Commercial</option>
+<option value="land">Land</option>
+</select>
+<span class="material-symbols-outlined absolute right-4 top-3 text-on-surface-variant pointer-events-none">expand_more</span>
+</div>
+</div>
+</div>
+<div>
+<label class="block font-label text-sm font-medium text-on-surface mb-2" for="description">Description</label>
+<textarea class="w-full bg-surface-container-highest border-0 rounded-lg py-3 px-4 text-on-surface font-body text-sm focus:ring-0 placeholder-on-surface-variant/50 transition-all resize-none" id="description" placeholder="Provide a compelling description of the property..." rows="4"></textarea>
+</div>
+</div>
+</div>
+</section>
+<!-- Section: Property Details -->
+<section class="flex flex-col md:flex-row gap-8 items-start">
+<div class="md:w-1/3 pt-2">
+<h3 class="font-headline font-bold text-lg text-on-surface tracking-tight mb-1">Property Details</h3>
+<p class="font-body text-sm text-on-surface-variant">Key specifications and dimensions.</p>
+</div>
+<div class="md:w-2/3 bg-surface-container-lowest rounded-xl p-8 hover:bg-surface-container-high transition-colors duration-300">
+<div class="grid grid-cols-2 md:grid-cols-3 gap-6">
+<div>
+<label class="block font-label text-sm font-medium text-on-surface mb-2" for="beds">Bedrooms</label>
+<input class="w-full bg-surface-container-highest border-0 rounded-lg py-3 px-4 text-on-surface font-body text-sm focus:ring-0 placeholder-on-surface-variant/50 transition-all" id="beds" placeholder="0" type="number"/>
+</div>
+<div>
+<label class="block font-label text-sm font-medium text-on-surface mb-2" for="baths">Bathrooms</label>
+<input class="w-full bg-surface-container-highest border-0 rounded-lg py-3 px-4 text-on-surface font-body text-sm focus:ring-0 placeholder-on-surface-variant/50 transition-all" id="baths" placeholder="0.0" step="0.5" type="number"/>
+</div>
+<div>
+<label class="block font-label text-sm font-medium text-on-surface mb-2" for="sqft">Square Footage</label>
+<div class="relative">
+<input class="w-full bg-surface-container-highest border-0 rounded-lg py-3 px-4 pr-12 text-on-surface font-body text-sm focus:ring-0 placeholder-on-surface-variant/50 transition-all" id="sqft" placeholder="0" type="number"/>
+<span class="absolute right-4 top-3 text-on-surface-variant font-label text-xs uppercase">sqft</span>
+</div>
+</div>
+<div class="col-span-2 md:col-span-3">
+<label class="block font-label text-sm font-medium text-on-surface mb-2" for="year">Year Built</label>
+<input class="w-full md:w-1/3 bg-surface-container-highest border-0 rounded-lg py-3 px-4 text-on-surface font-body text-sm focus:ring-0 placeholder-on-surface-variant/50 transition-all" id="year" placeholder="YYYY" type="number"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Section: Location -->
+<section class="flex flex-col md:flex-row gap-8 items-start">
+<div class="md:w-1/3 pt-2">
+<h3 class="font-headline font-bold text-lg text-on-surface tracking-tight mb-1">Location</h3>
+<p class="font-body text-sm text-on-surface-variant">Where is this property situated?</p>
+</div>
+<div class="md:w-2/3 bg-surface-container-lowest rounded-xl p-8 hover:bg-surface-container-high transition-colors duration-300">
+<div class="space-y-6">
+<div>
+<label class="block font-label text-sm font-medium text-on-surface mb-2" for="address">Street Address</label>
+<input class="w-full bg-surface-container-highest border-0 rounded-lg py-3 px-4 text-on-surface font-body text-sm focus:ring-0 placeholder-on-surface-variant/50 transition-all" id="address" placeholder="123 Main St" type="text"/>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="md:col-span-1">
+<label class="block font-label text-sm font-medium text-on-surface mb-2" for="city">City</label>
+<input class="w-full bg-surface-container-highest border-0 rounded-lg py-3 px-4 text-on-surface font-body text-sm focus:ring-0 placeholder-on-surface-variant/50 transition-all" id="city" placeholder="City" type="text"/>
+</div>
+<div class="md:col-span-1">
+<label class="block font-label text-sm font-medium text-on-surface mb-2" for="state">State/Province</label>
+<input class="w-full bg-surface-container-highest border-0 rounded-lg py-3 px-4 text-on-surface font-body text-sm focus:ring-0 placeholder-on-surface-variant/50 transition-all" id="state" placeholder="State" type="text"/>
+</div>
+<div class="md:col-span-1">
+<label class="block font-label text-sm font-medium text-on-surface mb-2" for="zip">Zip/Postal Code</label>
+<input class="w-full bg-surface-container-highest border-0 rounded-lg py-3 px-4 text-on-surface font-body text-sm focus:ring-0 placeholder-on-surface-variant/50 transition-all" id="zip" placeholder="Zip" type="text"/>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section: Media Upload -->
+<section class="flex flex-col md:flex-row gap-8 items-start mb-12">
+<div class="md:w-1/3 pt-2">
+<h3 class="font-headline font-bold text-lg text-on-surface tracking-tight mb-1">Media Upload</h3>
+<p class="font-body text-sm text-on-surface-variant">High-quality photos increase listing performance.</p>
+</div>
+<div class="md:w-2/3 bg-surface-container-lowest rounded-xl p-8 hover:bg-surface-container-high transition-colors duration-300">
+<div class="border-2 border-dashed border-outline-variant/40 rounded-xl p-12 flex flex-col items-center justify-center text-center bg-surface-container/30 transition-colors hover:bg-surface-container/50 cursor-pointer group">
+<div class="h-16 w-16 rounded-full bg-primary-fixed/30 flex items-center justify-center mb-4 text-primary group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-[32px]">cloud_upload</span>
+</div>
+<h4 class="font-headline font-bold text-base text-on-surface mb-1">Drag &amp; Drop images here</h4>
+<p class="font-body text-sm text-on-surface-variant mb-4">or click to browse from your device</p>
+<p class="font-label text-xs text-on-surface-variant/70 uppercase tracking-wider">JPG, PNG up to 10MB each</p>
+</div>
+</div>
+</section>
+<!-- Action Bar -->
+<div class="sticky bottom-0 w-full py-6 px-8 -mx-8 bg-surface/90 backdrop-blur-md border-t border-outline-variant/15 flex justify-end gap-4 mt-12 z-10">
+<button class="px-6 py-3 rounded-full text-on-surface font-body text-sm font-medium hover:bg-surface-container transition-colors" type="button">
+                        Save as Draft
+                    </button>
+<button class="px-8 py-3 rounded-full bg-gradient-to-br from-primary to-primary-container text-on-primary font-body text-sm font-medium hover:opacity-90 shadow-[0_8px_16px_rgba(0,32,69,0.15)] transition-all" type="submit">
+                        Publish Listing
+                    </button>
+</div>
+</form>
+</div>
+</main>
+</body></html>

@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Architect Curator - Buyer Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed": "#d6e3ff",
+                        "surface-dim": "#d7dadc",
+                        "primary-container": "#1a365d",
+                        "surface-variant": "#e0e3e5",
+                        "on-tertiary": "#ffffff",
+                        "inverse-on-surface": "#eef1f3",
+                        "surface-container-low": "#f1f4f6",
+                        "tertiary": "#162132",
+                        "primary": "#002045",
+                        "on-primary": "#ffffff",
+                        "primary-fixed-dim": "#adc7f7",
+                        "error": "#ba1a1a",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-container": "#006e6d",
+                        "on-secondary-fixed-variant": "#00504e",
+                        "inverse-primary": "#adc7f7",
+                        "on-primary-fixed-variant": "#2d476f",
+                        "on-secondary-fixed": "#00201f",
+                        "secondary-container": "#91f0ed",
+                        "secondary": "#006a68",
+                        "surface-container": "#ebeef0",
+                        "on-tertiary-fixed-variant": "#3c475a",
+                        "secondary-fixed-dim": "#77d6d3",
+                        "inverse-surface": "#2d3133",
+                        "on-secondary": "#ffffff",
+                        "outline-variant": "#c4c6cf",
+                        "tertiary-container": "#2b3648",
+                        "on-primary-fixed": "#001b3c",
+                        "surface-container-highest": "#e0e3e5",
+                        "on-surface-variant": "#43474e",
+                        "on-tertiary-fixed": "#111c2c",
+                        "surface-container-high": "#e5e9eb",
+                        "error-container": "#ffdad6",
+                        "background": "#f7fafc",
+                        "on-surface": "#181c1e",
+                        "on-error": "#ffffff",
+                        "surface-bright": "#f7fafc",
+                        "tertiary-fixed": "#d8e3fa",
+                        "on-tertiary-container": "#949fb4",
+                        "outline": "#74777f",
+                        "tertiary-fixed-dim": "#bcc7dd",
+                        "on-background": "#181c1e",
+                        "on-primary-container": "#86a0cd",
+                        "surface-tint": "#455f88",
+                        "secondary-fixed": "#94f2f0",
+                        "surface": "#f7fafc",
+                        "on-error-container": "#93000a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {},
+                    "fontFamily": {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-surface font-body text-on-surface antialiased flex h-screen overflow-hidden">
+<!-- SideNavBar -->
+<aside class="hidden md:flex flex-col h-full py-8 px-4 w-64 fixed left-0 top-0 bg-slate-50 dark:bg-slate-950 font-manrope text-sm font-medium border-r border-outline-variant/15 z-40">
+<div class="mb-10 px-4">
+<h1 class="text-lg font-black text-slate-900 dark:text-slate-50 font-headline tracking-tight">Curator Admin</h1>
+<p class="text-xs text-on-surface-variant mt-1">Premium Management</p>
+</div>
+<nav class="flex-1 space-y-2">
+<a class="flex items-center space-x-3 px-4 py-3 rounded-lg text-teal-700 dark:text-teal-400 font-bold border-r-2 border-teal-700 dark:border-teal-400 bg-surface-container-low translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-3 rounded-lg text-slate-500 dark:text-slate-400 hover:text-teal-600 dark:hover:text-teal-300 transition-all hover:bg-surface-container-low" href="#">
+<span class="material-symbols-outlined">real_estate_agent</span>
+<span>Properties</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-3 rounded-lg text-slate-500 dark:text-slate-400 hover:text-teal-600 dark:hover:text-teal-300 transition-all hover:bg-surface-container-low" href="#">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+<span>Financials</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-3 rounded-lg text-slate-500 dark:text-slate-400 hover:text-teal-600 dark:hover:text-teal-300 transition-all hover:bg-surface-container-low" href="#">
+<span class="material-symbols-outlined">insights</span>
+<span>Analytics</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-3 rounded-lg text-slate-500 dark:text-slate-400 hover:text-teal-600 dark:hover:text-teal-300 transition-all hover:bg-surface-container-low" href="#">
+<span class="material-symbols-outlined">group</span>
+<span>Clients</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-3 rounded-lg text-slate-500 dark:text-slate-400 hover:text-teal-600 dark:hover:text-teal-300 transition-all hover:bg-surface-container-low" href="#">
+<span class="material-symbols-outlined">fact_check</span>
+<span>Approvals</span>
+</a>
+</nav>
+<div class="mt-auto space-y-4">
+<button class="w-full py-3 px-4 rounded-full bg-gradient-to-br from-primary to-primary-container text-on-primary font-body text-sm font-medium shadow-md hover:shadow-lg transition-shadow flex items-center justify-center space-x-2">
+<span class="material-symbols-outlined text-sm">add</span>
+<span>Add New Listing</span>
+</button>
+<div class="space-y-1">
+<a class="flex items-center space-x-3 px-4 py-2 rounded-lg text-slate-500 dark:text-slate-400 hover:text-teal-600 dark:hover:text-teal-300 transition-all" href="#">
+<span class="material-symbols-outlined text-lg">help</span>
+<span class="text-xs">Help Center</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-2 rounded-lg text-slate-500 dark:text-slate-400 hover:text-teal-600 dark:hover:text-teal-300 transition-all" href="#">
+<span class="material-symbols-outlined text-lg">logout</span>
+<span class="text-xs">Sign Out</span>
+</a>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col md:ml-64 h-screen overflow-hidden bg-surface relative">
+<!-- TopNavBar -->
+<header class="flex justify-between items-center w-full px-6 py-3 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl font-manrope tracking-tight docked full-width top-0 z-50 shadow-sm dark:shadow-none tonal transition via surface-container-low">
+<div class="flex items-center flex-1">
+<!-- Mobile Menu Button -->
+<button class="md:hidden mr-4 text-on-surface p-2 rounded-full hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<div class="relative w-full max-w-md hidden sm:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full bg-surface-container-highest border-none rounded-full py-2 pl-10 pr-4 text-sm focus:ring-2 focus:ring-primary/40 focus:bg-surface-container-lowest transition-all text-on-surface placeholder-on-surface-variant" placeholder="Property Search" type="text"/>
+</div>
+</div>
+<div class="flex items-center space-x-2 sm:space-x-4">
+<button class="p-2 rounded-full text-slate-900 dark:text-slate-50 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors scale-95 active:scale-90 duration-200">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 rounded-full text-slate-900 dark:text-slate-50 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors scale-95 active:scale-90 duration-200">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-outline-variant/30 ml-2">
+<img alt="User profile" class="w-full h-full object-cover" data-alt="Professional headshot of a mature businessman in a dark suit against a neutral studio background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuApWLbZOcaoFUqB30TH9XJs0zmZU6DexGAKTw_ejSIAc3uyTQ7_C4FY3Dc7OX2T3hkhSkAVjbH0lCRpBla6cQcvtjjk5n0RV9s-IOi1--xtnr-IAjbmRCzbsp8l84PsxZbtfxloFB7GvCq8COF0DdC9WoNmzqyM7emD2zV3fiC9PtfFldQT6VVyoufoIA-xjThCSFqR-VEFelAdbNIrRhIFKXh2wLymKNaVSlriMyFK9xXDTs0O1mXYv-9rsqcOCvvUEcyWQ6VaLfM"/>
+</div>
+</div>
+</header>
+<!-- Scrollable Content Canvas -->
+<div class="flex-1 overflow-y-auto p-4 sm:p-8 lg:p-12 pb-32 md:pb-12 space-y-12">
+<!-- Page Header -->
+<div class="max-w-7xl mx-auto">
+<h2 class="text-3xl md:text-4xl font-headline font-extrabold text-primary tracking-tight mb-2">Buyer Dashboard</h2>
+<p class="text-on-surface-variant font-body text-sm md:text-base">Welcome back. Here is the latest on your architectural investments.</p>
+</div>
+<div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
+<!-- Left Column: Primary Focus -->
+<div class="lg:col-span-8 space-y-12">
+<!-- Current Property Carousel/Gallery -->
+<section class="space-y-6">
+<div class="flex justify-between items-end">
+<h3 class="font-headline text-2xl font-bold text-primary tracking-tight">Active Escrow</h3>
+<span class="font-body text-xs font-semibold uppercase tracking-wider text-secondary bg-secondary-container px-3 py-1 rounded-full">Closing in 14 Days</span>
+</div>
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden p-4 group hover:bg-surface-container-high transition-colors duration-300">
+<div class="relative aspect-video rounded-lg overflow-hidden mb-4">
+<img alt="Current Property" class="w-full h-full object-cover" data-alt="Stunning modern mansion exterior at twilight with large glass windows, glowing interior lights, and an infinity pool reflecting the sky" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCSBxxVei4PJubc8FJH47MJ0Si558bXefwm7YZdfiY9MjtwETE8q5JRQL2wMXjGZJ8saER_fOl2FYGmeVhMCP4GL6EQzmZOGFIexOQ8BV4Flrhkj5ThhKYNa5OBisqjNiBMuYBQoqFOF0WwMK13VxXVeWuwsvnqb621f-H8R7fwV09R1jOu8aHwuw-mLOTpfHzwC2JQwZFVV_0-WOZGLis7sNjsFGpHi_3GJywf7Do6caiMMu_nZGBfcWJd5Q2XrsVOUO50HNxXsqk"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent flex flex-col justify-end p-6">
+<h4 class="font-headline text-on-primary text-xl md:text-3xl font-bold tracking-tight">The Glass Pavilion</h4>
+<p class="font-body text-on-primary/80 text-sm md:text-base">1042 Summit Ridge Drive, Beverly Hills</p>
+</div>
+</div>
+<div class="grid grid-cols-4 gap-2">
+<div class="aspect-square rounded-md overflow-hidden bg-surface-container-low">
+<img alt="Gallery 1" class="w-full h-full object-cover opacity-80 hover:opacity-100 cursor-pointer transition-opacity" data-alt="Minimalist luxury kitchen with dark marble countertops, warm wood cabinetry, and sleek pendant lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD1rK7Dmnmjs_y728SHizViZ_7HHnW0QqDTavPeIflUBOQIUtR-xIn1t8HhBaMuxQUdZ3w4ZvTtfZ7BZ2d3PRuuQ2OJt-6IUpohLJE0IBNJINlsmYaQJtrDo4uDn03GXMTeIcgvo_5b68E-8huPUNCPyfhyFCt47xyCX4AvREtRLjgaw2AeUuOVVEPvzwDJld01DMwk6cTDxa2guP5HKzRTKtKsT8HREfzPaDYkCmRmIDg93jRsncxvHalbDPW-bbdGP5p_SvmM1dI"/>
+</div>
+<div class="aspect-square rounded-md overflow-hidden bg-surface-container-low">
+<img alt="Gallery 2" class="w-full h-full object-cover opacity-80 hover:opacity-100 cursor-pointer transition-opacity" data-alt="Spacious contemporary living room with floor-to-ceiling windows overlooking a city skyline, featuring low-profile neutral furniture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBSD1koiGAeGE-IlTD7gr31RDuaCSLmc4L36wNa-3NLXcpv-ZGp5tvcKEZrPgeHkkHTcCa7Yhl7aZuOU8jQGcHwR2jFpC-JzqL7Mt6-ochdhb6Hku5Ar88K0GxqEE5UWrbwG2kC6ORWNTaJXD0yB_hucaxabJsuLDGIPaLNa_6aWzjpQS9rfAb2oRSgxhZDrdHUKoksTxwF258WDQsisUJL_Jxups8HdHGg-bf9hlXwPc25BvM7lnISv9qBKXzMVADIlbQl9XoYxYw"/>
+</div>
+<div class="aspect-square rounded-md overflow-hidden bg-surface-container-low">
+<img alt="Gallery 3" class="w-full h-full object-cover opacity-80 hover:opacity-100 cursor-pointer transition-opacity" data-alt="Luxurious master bathroom with a freestanding white tub, dark stone tiles, and a large rain shower" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDbuAgEee5Da_TnxdmqTTKboyfAX3TDmuMayL-aY9Hlh4iYxveJVt-klsGvJIUrA_tUb-ypJgpjm9q-RgsKy9eDTaikUqe_qkNaoKMUmKp1sLx2Lpxb1yES15uzbYoJkskQ5jHgK-NC1Upe9lDEsVyaSoLSI6FPs4wfejwdVBv7IBsGK2XYWuRldvNkFZo09xCbr-odsjUdJuC4jzpzZldpbPPqdNGel4yLbFbQenBDzjdVlIBT7qCutnacpdO7-ishgFpSGQrtmdU"/>
+</div>
+<div class="aspect-square rounded-md overflow-hidden bg-surface-container-low relative cursor-pointer group/more">
+<img alt="Gallery 4" class="w-full h-full object-cover opacity-50 transition-opacity" data-alt="Expansive outdoor patio with comfortable seating area, modern fire pit, and subtle landscape lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCUmO6wXbTzwRl6L0o1eWRg0hstjB1MqpFyxXDaG5fEL7yPtSHBRed-ALQIwKMeZ-2oo1itS9YH4hSvJl4KxLxMDkwYXRn9HrBS59gcfBytCCUnLZM1I6noPuqNn5vXFY_qZ5fOfAol2O2xlaKLVXAX5vL8DGM9zINtQ65G53XonmmiNN4Smn9OAS_xSgV86tPAJfBGEaMhFXyEQ69q68tblP3bRTLF98cwHC9gtcGacPgXi03_1TIiYDFaKHhyp1rVYTbrU3Tcz18"/>
+<div class="absolute inset-0 flex items-center justify-center bg-primary/20 group-hover/more:bg-primary/40 transition-colors">
+<span class="font-headline font-bold text-on-primary text-sm">+12</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Balance History -->
+<section class="space-y-6">
+<div class="flex justify-between items-end">
+<h3 class="font-headline text-2xl font-bold text-primary tracking-tight">Financial Ledger</h3>
+<div class="text-right">
+<p class="font-body text-xs text-on-surface-variant uppercase tracking-wider mb-1">Escrow Balance</p>
+<p class="font-headline text-2xl font-bold text-secondary tracking-tight">$450,000.00</p>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden pt-2">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-high border-b border-outline-variant/15">
+<th class="py-4 px-6 font-body text-xs font-semibold text-on-surface-variant uppercase tracking-wider">Date</th>
+<th class="py-4 px-6 font-body text-xs font-semibold text-on-surface-variant uppercase tracking-wider">Description</th>
+<th class="py-4 px-6 font-body text-xs font-semibold text-on-surface-variant uppercase tracking-wider">Type</th>
+<th class="py-4 px-6 font-body text-xs font-semibold text-on-surface-variant uppercase tracking-wider text-right">Amount</th>
+</tr>
+</thead>
+<tbody class="font-body text-sm">
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="py-4 px-6 text-on-surface-variant border-b border-outline-variant/5">Oct 24, 2023</td>
+<td class="py-4 px-6 font-medium text-on-surface border-b border-outline-variant/5">Initial Deposit</td>
+<td class="py-4 px-6 border-b border-outline-variant/5"><span class="inline-flex items-center space-x-1 text-secondary"><span class="material-symbols-outlined text-sm">arrow_downward</span><span>Credit</span></span></td>
+<td class="py-4 px-6 text-right font-medium text-secondary border-b border-outline-variant/5">$250,000.00</td>
+</tr>
+<tr class="bg-surface-container-low/50 hover:bg-surface-container-low transition-colors group">
+<td class="py-4 px-6 text-on-surface-variant border-b border-outline-variant/5">Oct 28, 2023</td>
+<td class="py-4 px-6 font-medium text-on-surface border-b border-outline-variant/5">Inspection Fee</td>
+<td class="py-4 px-6 border-b border-outline-variant/5"><span class="inline-flex items-center space-x-1 text-on-surface-variant"><span class="material-symbols-outlined text-sm">arrow_upward</span><span>Debit</span></span></td>
+<td class="py-4 px-6 text-right font-medium text-on-surface border-b border-outline-variant/5">-$1,500.00</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="py-4 px-6 text-on-surface-variant border-b border-outline-variant/5">Nov 02, 2023</td>
+<td class="py-4 px-6 font-medium text-on-surface border-b border-outline-variant/5">Secondary Transfer</td>
+<td class="py-4 px-6 border-b border-outline-variant/5"><span class="inline-flex items-center space-x-1 text-secondary"><span class="material-symbols-outlined text-sm">arrow_downward</span><span>Credit</span></span></td>
+<td class="py-4 px-6 text-right font-medium text-secondary border-b border-outline-variant/5">$201,500.00</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+</div>
+<!-- Right Column: Secondary / Curated -->
+<div class="lg:col-span-4 space-y-12">
+<!-- Saved Houses -->
+<section class="space-y-6">
+<h3 class="font-headline text-xl font-bold text-primary tracking-tight">Saved Portfolio</h3>
+<div class="space-y-4">
+<!-- Card 1 -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden p-3 flex space-x-4 hover:bg-surface-container-high transition-colors duration-300 group cursor-pointer">
+<div class="w-24 h-24 rounded-lg overflow-hidden shrink-0 bg-surface-container-low">
+<img alt="Saved Property 1" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Modern architectural home with sharp geometric lines, large glass walls, and a minimalist garden" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCUdsFlvoFVX6qCY08ho00yrYic4fnPADzEscY9lBct6nyeTkM1Hw_1_AUXpPH6OeK1gSAPQ-dlgJk4UjQIX_G1wVCsyw1hSW8rQvj5Vo5q8jrYE5Ut8ixuLLQyZX-1aPyglvIj1lL7r2CReHbM6i_15l2j-7Ron95KDBE3BO-LYlLa-EHKEvZtaSDnMe_MIBlijXh4hLwauntLpzi2jtygwwcKkMkb5yl9a-8rtPM9YnnP9CaX5fXjIwCbhEYfVg9wwaFn2YvJ5pQ"/>
+</div>
+<div class="flex flex-col justify-center flex-1">
+<h4 class="font-headline font-bold text-on-surface text-sm mb-1 line-clamp-1">The Geometric Villa</h4>
+<p class="font-body text-on-surface-variant text-xs mb-2 line-clamp-1">Hollywood Hills, CA</p>
+<p class="font-headline font-bold text-secondary text-sm tracking-tight">$4,250,000</p>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden p-3 flex space-x-4 hover:bg-surface-container-high transition-colors duration-300 group cursor-pointer">
+<div class="w-24 h-24 rounded-lg overflow-hidden shrink-0 bg-surface-container-low">
+<img alt="Saved Property 2" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Luxury mid-century modern home exterior with warm wood accents, a flat roof, and desert landscaping" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAW3Cteaq3Vi46ouhWv7fcuVGi2PSB_vjukGE8Ec-Cyey5qMQG4LzbJcIklFX2-DRYXQj2fNR8oW68UqcyWvpyOvEd_Va3dWu8oYlWtPj9awyO8cIBtpvioUp1md_Lr44fAyzF4u3GK-wquNJ5hjb1JS48_cc3emxWkWjrfwQaSQeE8j3N3k96jHL9HObsePksdLiDjI0Lgf_7xxFaOM1fkpV67SIDhbyOO7suMGhK5qhR0Gf5WqJY2xKZVxN1XDp-CyFwS4NudHuE"/>
+</div>
+<div class="flex flex-col justify-center flex-1">
+<h4 class="font-headline font-bold text-on-surface text-sm mb-1 line-clamp-1">Desert Oasis Retreat</h4>
+<p class="font-body text-on-surface-variant text-xs mb-2 line-clamp-1">Palm Springs, CA</p>
+<p class="font-headline font-bold text-secondary text-sm tracking-tight">$3,100,000</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Recommended Properties -->
+<section class="space-y-6 pt-6 border-t border-outline-variant/15">
+<div class="flex justify-between items-center">
+<h3 class="font-headline text-xl font-bold text-primary tracking-tight">Curated For You</h3>
+<button class="text-secondary font-body text-sm font-medium hover:underline">View All</button>
+</div>
+<div class="space-y-4">
+<!-- Card 1 -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden hover:bg-surface-container-high transition-colors duration-300 group cursor-pointer border border-outline-variant/15">
+<div class="aspect-[16/9] overflow-hidden bg-surface-container-low">
+<img alt="Recommended Property" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="Aesthetic A-frame cabin tucked in a pine forest, featuring large front-facing windows and soft interior lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBepWzPoE9xcKleWFPqFGuPLEOEzWixk4fFQ0-L26zikucsmnloB5OeX1LMtZQ-yAzmXeCWK6aeeY14e5WG7Uj6sPYC-M0DKc9a_7rJnrwXTVN3oC3Ksp5pU5hkOuy4Mlr5zr4108dK7MRwyye5FbPoNHVGbknEvw3hrxZcgEyfw2gQJgr3cVO9QgvQqsJK20Hjq_CI7g1O9JZZbbkYAlQTFmtYXdJMUONYcsqKb4CKl5iiy5l7FKpdctdASkheXhGQ2rZaW86xMEY"/>
+</div>
+<div class="p-4">
+<h4 class="font-headline font-bold text-on-surface text-base mb-1">Alpine Ascendancy</h4>
+<p class="font-body text-on-surface-variant text-xs mb-3">Lake Tahoe, NV</p>
+<div class="flex justify-between items-center">
+<p class="font-headline font-bold text-primary text-base tracking-tight">$5,800,000</p>
+<span class="material-symbols-outlined text-outline hover:text-secondary transition-colors">bookmark_border</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+</div>
+</div>
+</main>
+<!-- Mobile Bottom Navigation (Visible only on small screens) -->
+<nav class="md:hidden fixed bottom-0 w-full bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl border-t border-outline-variant/15 flex justify-around items-center py-3 px-2 z-50 pb-safe">
+<a class="flex flex-col items-center p-2 text-teal-700 dark:text-teal-400" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+<span class="text-[10px] font-body mt-1 font-semibold">Dashboard</span>
+</a>
+<a class="flex flex-col items-center p-2 text-slate-500 dark:text-slate-400" href="#">
+<span class="material-symbols-outlined">real_estate_agent</span>
+<span class="text-[10px] font-body mt-1">Properties</span>
+</a>
+<a class="flex flex-col items-center p-2 text-slate-500 dark:text-slate-400" href="#">
+<span class="material-symbols-outlined">favorite</span>
+<span class="text-[10px] font-body mt-1">Saved</span>
+</a>
+<a class="flex flex-col items-center p-2 text-slate-500 dark:text-slate-400" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-body mt-1">Profile</span>
+</a>
+</nav>
+</body></html>

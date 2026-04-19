@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Messages - Estate Curate</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "secondary-fixed": "#94f2f0",
+                      "on-primary-container": "#86a0cd",
+                      "inverse-surface": "#2d3133",
+                      "on-primary-fixed-variant": "#2d476f",
+                      "tertiary-fixed": "#d8e3fa",
+                      "on-background": "#181c1e",
+                      "on-tertiary-fixed": "#111c2c",
+                      "secondary-container": "#91f0ed",
+                      "primary": "#002045",
+                      "secondary": "#006a68",
+                      "outline-variant": "#c4c6cf",
+                      "surface-container-highest": "#e0e3e5",
+                      "on-error": "#ffffff",
+                      "inverse-primary": "#adc7f7",
+                      "surface-variant": "#e0e3e5",
+                      "primary-fixed": "#d6e3ff",
+                      "surface": "#f7fafc",
+                      "primary-container": "#1a365d",
+                      "background": "#f7fafc",
+                      "on-secondary": "#ffffff",
+                      "on-primary": "#ffffff",
+                      "surface-container-lowest": "#ffffff",
+                      "surface-container-high": "#e5e9eb",
+                      "on-secondary-fixed": "#00201f",
+                      "error-container": "#ffdad6",
+                      "surface-bright": "#f7fafc",
+                      "surface-dim": "#d7dadc",
+                      "on-tertiary-container": "#949fb4",
+                      "on-primary-fixed": "#001b3c",
+                      "on-tertiary": "#ffffff",
+                      "surface-container": "#ebeef0",
+                      "tertiary-container": "#2b3648",
+                      "on-tertiary-fixed-variant": "#3c475a",
+                      "tertiary": "#162132",
+                      "secondary-fixed-dim": "#77d6d3",
+                      "error": "#ba1a1a",
+                      "primary-fixed-dim": "#adc7f7",
+                      "inverse-on-surface": "#eef1f3",
+                      "surface-container-low": "#f1f4f6",
+                      "surface-tint": "#455f88",
+                      "tertiary-fixed-dim": "#bcc7dd",
+                      "on-secondary-container": "#006e6d",
+                      "on-surface-variant": "#43474e",
+                      "on-secondary-fixed-variant": "#00504e",
+                      "on-surface": "#181c1e",
+                      "outline": "#74777f",
+                      "on-error-container": "#93000a"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {},
+              "fontFamily": {
+                      "headline": [
+                              "Manrope"
+                      ],
+                      "body": [
+                              "Inter"
+                      ],
+                      "label": [
+                              "Inter"
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #f7fafc; color: #181c1e; }
+        h1, h2, h3, h4, h5, h6, .font-headline { font-family: 'Manrope', sans-serif; }
+        
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+      </style>
+</head>
+<body class="bg-background text-on-background overflow-hidden flex h-screen">
+<!-- SideNavBar -->
+<nav class="h-screen w-64 fixed left-0 top-0 border-r-0 bg-slate-50 dark:bg-slate-900 bg-slate-100 dark:bg-slate-800 flat no shadows flex flex-col h-full py-6 px-4 z-50 hidden md:flex">
+<div class="mb-8 px-4 flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary-container overflow-hidden shrink-0">
+<img alt="User profile" class="w-full h-full object-cover" data-alt="Professional headshot of a mature male real estate agent in a navy suit against a neutral studio background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAvw2nIzoOfShQ9umq5WQRRzSE1x2Z4Q9NTF1CExJWh35R4byWSeMOK2v_X22EAkVhCGBuz4F35AJD9FEKG_BIHW4FOzID1mBgA8N7a_LVg7xRQifheO7r6nCIHRqvWesaCGRomPA5_oCYUJWMI1FxT6CAud83y8KrdZqb7xSXTqmsBYfzSD2m6Ff5uO2fSas8u-3Brsmg-jdTy0uOUgIr5tgmHKKOx9v-LzfhBv_r59GHT8ddRYKFFHMtJZLt0jqK4uMrcoe3ofKI"/>
+</div>
+<div>
+<h2 class="text-xl font-bold text-slate-900 dark:text-white font-manrope font-semibold tracking-tight">The Curator</h2>
+<p class="text-xs text-slate-500 dark:text-slate-400 font-inter">Management Portal</p>
+</div>
+</div>
+<ul class="flex flex-col gap-1 flex-1">
+<li>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 transition-colors font-inter text-sm font-medium" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+                    Dashboard
+                </a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 transition-colors font-inter text-sm font-medium" href="#">
+<span class="material-symbols-outlined" data-icon="domain">domain</span>
+                    Properties
+                </a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 transition-colors font-inter text-sm font-medium" href="#">
+<span class="material-symbols-outlined" data-icon="insights">insights</span>
+                    Analytics
+                </a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 transition-colors font-inter text-sm font-medium" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+                    Clients
+                </a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-teal-700 dark:text-teal-400 font-bold border-r-4 border-teal-600 bg-slate-200/30 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 transition-colors font-inter text-sm font-medium Active: scale-95 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="chat_bubble" data-weight="fill" style="font-variation-settings: 'FILL' 1;">chat_bubble</span>
+                    Messages
+                </a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 transition-colors font-inter text-sm font-medium" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+                    Settings
+                </a>
+</li>
+</ul>
+<div class="mt-auto px-4">
+<button class="w-full py-3 px-4 rounded-full bg-gradient-to-br from-primary to-primary-container text-on-primary font-inter font-medium text-sm flex items-center justify-center gap-2 hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined text-lg" data-icon="add">add</span>
+                New Listing
+            </button>
+</div>
+</nav>
+<!-- TopNavBar -->
+<header class="fixed top-0 right-0 left-0 md:left-64 h-16 z-40 bg-white/80 dark:bg-slate-950/80 backdrop-blur-xl tonal-transition-surface-container-high shadow-sm dark:shadow-none flex items-center justify-between px-8 w-full hidden md:flex">
+<div class="flex items-center gap-4 flex-1">
+<div class="relative w-64">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-sm" data-icon="search">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-surface-container-highest border-none rounded-full text-sm font-inter text-on-surface placeholder:text-on-surface-variant focus:ring-2 focus:ring-primary/40 focus:outline-none transition-all" placeholder="Search properties, clients..." type="text"/>
+</div>
+</div>
+<nav class="flex items-center gap-6">
+<a class="text-slate-500 dark:text-slate-400 font-inter text-sm font-medium hover:text-teal-600 dark:hover:text-teal-400 transition-all Focus: ring-2 ring-teal-500/20" href="#">Market</a>
+<a class="text-slate-500 dark:text-slate-400 font-inter text-sm font-medium hover:text-teal-600 dark:hover:text-teal-400 transition-all Focus: ring-2 ring-teal-500/20" href="#">Reports</a>
+<a class="text-slate-500 dark:text-slate-400 font-inter text-sm font-medium hover:text-teal-600 dark:hover:text-teal-400 transition-all Focus: ring-2 ring-teal-500/20" href="#">Help</a>
+</nav>
+<div class="flex items-center gap-4 ml-8 border-l border-outline-variant/30 pl-8">
+<button class="text-on-surface-variant hover:text-primary transition-colors relative">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-0 right-0 w-2 h-2 bg-secondary rounded-full"></span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-colors relative">
+<span class="material-symbols-outlined" data-icon="apps">apps</span>
+</button>
+<div class="w-8 h-8 rounded-full bg-surface-container-high overflow-hidden ml-2 cursor-pointer">
+<img alt="Agent Avatar" class="w-full h-full object-cover" data-alt="Small thumbnail headshot of a real estate agent" src="https://lh3.googleusercontent.com/aida-public/AB6AXuARz9gVB0VeUlH0gyY26mjG67UHKGGb7pKroVRuuWrwfzoEbmlO34slLZBU9RvEtXpBeNYodXDtUg2w0nB9oBe0RZAsBHZw7xdqKTJwpXchvcTuTmbVVMRZEfW-trcG_YxGCcPgRMNv7Cw-TiW0YcZQJRON2jVvrtRdxsf64_XmVmBsvp15Fr9HQ81rehTBoOFQGFCKZ8mbI4VH_B3grlOJXjTHJeVDvr2fZSHIzGBD4NEXy4uI6S2Mn6tzosnuGBuAwufksW9KxTI"/>
+</div>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="flex-1 md:ml-64 pt-16 h-screen flex bg-surface-container-low overflow-hidden">
+<!-- Left Pane: Inbox List -->
+<aside class="w-full md:w-96 lg:w-[400px] bg-surface-container-lowest h-full flex flex-col shrink-0">
+<!-- Inbox Header -->
+<div class="p-6 pb-4">
+<h1 class="text-2xl font-headline font-bold text-on-background tracking-tight mb-4">Inquiries</h1>
+<!-- Filters -->
+<div class="flex gap-2 mb-4 overflow-x-auto no-scrollbar pb-1">
+<button class="px-4 py-1.5 rounded-full bg-surface-container-highest text-on-background font-inter text-sm font-medium whitespace-nowrap">All Messages</button>
+<button class="px-4 py-1.5 rounded-full bg-surface text-on-surface-variant font-inter text-sm font-medium whitespace-nowrap border border-outline-variant/15 hover:bg-surface-container-highest transition-colors">Unread</button>
+<button class="px-4 py-1.5 rounded-full bg-surface text-on-surface-variant font-inter text-sm font-medium whitespace-nowrap border border-outline-variant/15 hover:bg-surface-container-highest transition-colors">High Priority</button>
+</div>
+</div>
+<!-- Message List -->
+<div class="flex-1 overflow-y-auto no-scrollbar">
+<!-- Active Item -->
+<div class="p-4 bg-surface-container-high cursor-pointer relative">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-secondary rounded-r-full"></div>
+<div class="flex gap-4">
+<div class="w-12 h-12 rounded-full overflow-hidden shrink-0 bg-surface-variant">
+<img alt="Eleanor Vance" class="w-full h-full object-cover" data-alt="Professional headshot of a young woman smiling" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBe1P3_HEWpudGBORLNmg1TjN57LO1-uOawj1i5IEZga1iQ8JZQlCz0vb7docneHFvB99Iyr9zDGb3I9w3wzFIycBdYXsk5FSdxYZEA9caZ0G-3d6WwJ92cMZR1i8SIpu-RS0R2eOgJFzk0hQWUWCI4UKdW9Snh1cIaTmiR_GlMQWEk3iTyykvX6ToMM6BFUQoUixxhjFbmr0jT4GfVG2CBTxRFLRii8UN1Ec2rX-1UukjQqr8Swi2zZ7MqpEfvjaoq4UGUsVpsLGs"/>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-baseline mb-1">
+<h3 class="font-inter font-semibold text-on-background truncate text-sm">Eleanor Vance</h3>
+<span class="font-inter text-xs text-secondary font-medium">10:42 AM</span>
+</div>
+<p class="font-inter text-sm text-on-surface-variant font-medium truncate">Re: Viewing for 1420 Ocean Drive</p>
+<p class="font-inter text-sm text-on-surface-variant truncate mt-0.5">Yes, Thursday afternoon works perfectly. Could we say 2:00 PM?</p>
+</div>
+</div>
+</div>
+<!-- Inactive Item 1 -->
+<div class="p-4 bg-surface-container-lowest hover:bg-surface-container-high transition-colors cursor-pointer border-t border-outline-variant/15">
+<div class="flex gap-4">
+<div class="w-12 h-12 rounded-full overflow-hidden shrink-0 bg-surface-variant flex items-center justify-center text-on-surface-variant font-headline font-bold text-lg">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-baseline mb-1">
+<h3 class="font-inter font-medium text-on-background truncate text-sm">Marcus Sterling</h3>
+<span class="font-inter text-xs text-on-surface-variant">Yesterday</span>
+</div>
+<p class="font-inter text-sm text-on-background truncate font-medium">Financial Pre-approval Documents</p>
+<p class="font-inter text-sm text-on-surface-variant truncate mt-0.5">I've attached the requested bank statements for the Penthouse bid.</p>
+</div>
+</div>
+</div>
+<!-- Inactive Item 2 -->
+<div class="p-4 bg-surface-container-lowest hover:bg-surface-container-high transition-colors cursor-pointer border-t border-outline-variant/15">
+<div class="flex gap-4">
+<div class="w-12 h-12 rounded-full overflow-hidden shrink-0 bg-surface-variant">
+<img alt="David Chen" class="w-full h-full object-cover" data-alt="Casual portrait of a young man with glasses" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDqqZIIeTqsO76uLBKtwCW3SH2EiC2iwcp4tdxeWIPW7t_YTx4cuunnB3j1xJqFFEDXrEuQ_z_X5dcWY-FKzm6XsJUlEgfF-X1uA0ek6iHUE5qrp1KOhne40kzje3EklViqposNK-94TzVIiswBhKSC_oWt44Dm0LkrpDVwpYxjuui8-H4nLwl3tGWJV6XNgM6zXaEemvloyQlT8JRpoYpnNJ9XbtckcYC16sQxHLy4xKI0sSbhEih9wUKv2AWQugQVjpiIHZKVJHM"/>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-baseline mb-1">
+<h3 class="font-inter font-medium text-on-background truncate text-sm">David Chen</h3>
+<span class="font-inter text-xs text-on-surface-variant">Oct 12</span>
+</div>
+<p class="font-inter text-sm text-on-surface-variant truncate">Inquiry regarding The Beacon #404</p>
+<p class="font-inter text-sm text-on-surface-variant truncate mt-0.5">Is the parking space deeded with the unit or leased separately?</p>
+</div>
+</div>
+</div>
+</div>
+</aside>
+<!-- Right Pane: Active Conversation -->
+<section class="flex-1 bg-surface h-full flex flex-col hidden md:flex relative overflow-hidden">
+<!-- Conversation Header -->
+<header class="h-20 bg-surface-container-lowest px-8 flex items-center justify-between shrink-0 relative z-10">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full overflow-hidden shrink-0 bg-surface-variant">
+<img alt="Eleanor Vance" class="w-full h-full object-cover" data-alt="Professional headshot of a young woman smiling" src="https://lh3.googleusercontent.com/aida-public/AB6AXuADkBEXMJjjo0UsZTZs5BBbKpFwa9CPd6pSuyVJOGRA9y_aGn5KfRXqS50Lk11bRGm2Vc578AiW0zNTQcvo0SFB-jTcJKESlMI6fE2fYvOUFSeMngzqRzYdR7lpQHAZv3L8Y87MwQ7mbAci-GllqNVGDu5RD3VYxxtaZ6KdgIzuqSoZbIPLSHqhGDgttQ0bFBAfSlz7uHKNf07v71im4NWU9gicEmIA6nRyrkxlOtr5wZUfoh80XfRXlTXoiTZn4sDWyX4Arta-_TE"/>
+</div>
+<div>
+<h2 class="font-headline font-bold text-lg text-on-background">Eleanor Vance</h2>
+<p class="font-inter text-xs text-on-surface-variant flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-secondary inline-block"></span>
+                            Active looking
+                        </p>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<button class="w-10 h-10 rounded-full bg-surface hover:bg-surface-container-high flex items-center justify-center text-on-surface-variant transition-colors">
+<span class="material-symbols-outlined" data-icon="call">call</span>
+</button>
+<button class="w-10 h-10 rounded-full bg-surface hover:bg-surface-container-high flex items-center justify-center text-on-surface-variant transition-colors">
+<span class="material-symbols-outlined" data-icon="videocam">videocam</span>
+</button>
+<button class="w-10 h-10 rounded-full bg-surface hover:bg-surface-container-high flex items-center justify-center text-on-surface-variant transition-colors">
+<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+</header>
+<!-- Context Card (Property Details) -->
+<div class="px-8 py-4 bg-surface-container-low shrink-0 relative z-10 flex justify-center">
+<div class="bg-surface-container-lowest rounded-xl p-3 flex gap-4 w-full max-w-2xl border border-outline-variant/15 items-center">
+<div class="w-16 h-16 rounded-lg overflow-hidden shrink-0">
+<img alt="1420 Ocean Drive" class="w-full h-full object-cover" data-alt="Modern luxury home exterior with large windows and clean lines" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9ukzRaDaSQwPA0Do1bT0H-kTq6xSRrxFdNI2k_aNUkIteC5iFcuo8d1whLE6GALS7WfXmtCSEWj9Xbboo5vhlayxsTd_yTIqJQCUaVcQfYZDLTVz2tAK4pXhxg9gKueNEj6RXma2iTobI4R8sxvTExlSyXzxoQaQh_hMcvGKCQQz__hQwcY2JEo1TA8S7FgRvgysU6VX328V3aFaaSevF-uebuUxo_udDJupTi45utjClZysFx7qiEkx6-e_2HVJQ-tSmv78UvgI"/>
+</div>
+<div class="flex-1">
+<h4 class="font-headline text-sm font-bold text-on-background">1420 Ocean Drive, Penthouse B</h4>
+<p class="font-inter text-xs text-on-surface-variant mt-1">$4,250,000 • 3 Bed • 3.5 Bath</p>
+</div>
+<button class="px-4 py-2 rounded-full bg-surface-container-high text-on-background font-inter text-xs font-medium hover:bg-surface-container-highest transition-colors">View Listing</button>
+</div>
+</div>
+<!-- Messages Area -->
+<div class="flex-1 overflow-y-auto p-8 flex flex-col gap-6 no-scrollbar relative z-0">
+<!-- Date Divider -->
+<div class="flex justify-center my-2">
+<span class="px-3 py-1 rounded-full bg-surface-container-highest text-on-surface-variant font-inter text-xs font-medium">Yesterday</span>
+</div>
+<!-- Received Message -->
+<div class="flex gap-4 max-w-[80%]">
+<div class="w-8 h-8 rounded-full overflow-hidden shrink-0 bg-surface-variant mt-auto">
+<img alt="Eleanor Vance" class="w-full h-full object-cover" data-alt="Professional headshot of a young woman smiling" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCZEXphlZnbyc_A2oM4C3nJyq5UA2b4fMjHAo6CY0qXL2sp8SNPtNkeq1c4HPw_B_5ChhLMWZ9C_HleM4N0m7RjBaVv1IaaW3lrpB3BsHi1u_WG6LvR3Sl8Cyo4_c3ghsucV-Nj402cSY_kxU7W40zkuSjhuZyKOA9LMyeCNpUnL4SvCBmFzSgWqdlFAMJl7lrFjDwZtRHx21kecvE8F36Y5z-MnOyv1cHRUPgVHIWEgNgNQrhgQ3JMfCNMo-Ep0cOJXhTXf4SuPrc"/>
+</div>
+<div>
+<div class="bg-surface-container-highest rounded-2xl rounded-bl-sm p-4 text-on-background font-inter text-sm leading-relaxed">
+<p>Hi, I was looking through the portfolio and the Ocean Drive Penthouse caught my eye. Are you currently scheduling private viewings for this week?</p>
+</div>
+<span class="font-inter text-xs text-on-surface-variant mt-1 block ml-2">4:30 PM</span>
+</div>
+</div>
+<!-- Sent Message -->
+<div class="flex gap-4 max-w-[80%] self-end flex-row-reverse">
+<div class="w-8 h-8 rounded-full overflow-hidden shrink-0 bg-surface-variant mt-auto">
+<img alt="Agent Avatar" class="w-full h-full object-cover" data-alt="Small thumbnail headshot of a real estate agent" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBf0kApKy7cEYQu9CZpeWRBbjjtqcEK_a_B1ZKt71bIrbqKQwmjpxIveSCprb6DopBQsTrWDIexHLCXm_Sw2RCN-EWOP-A7a86TDASrvARKi57EtCa5fpAVd6DeZTNYP9PXArPB1fb5t6Iu5IULDPqFFR6fw_joZWiFYyAfmWL1fLyqkp6GZlcuGXs4YdJK7AiF7c0IDIWPL2WDu9viv_oUdBktvs55pXw8xsmlDyGOZ_ylomnWav2GL7-_BKuNXtYoZhNrQplZ-c0"/>
+</div>
+<div class="flex flex-col items-end">
+<div class="bg-primary text-on-primary rounded-2xl rounded-br-sm p-4 font-inter text-sm leading-relaxed">
+<p>Good afternoon Eleanor. Yes, absolutely. It's a stunning property with unobstructed views.</p>
+<p class="mt-2">I have availability this Thursday afternoon or Friday morning. Would either of those work for you?</p>
+</div>
+<span class="font-inter text-xs text-on-surface-variant mt-1 block mr-2">4:45 PM</span>
+</div>
+</div>
+<!-- Date Divider -->
+<div class="flex justify-center my-2">
+<span class="px-3 py-1 rounded-full bg-surface-container-highest text-on-surface-variant font-inter text-xs font-medium">Today</span>
+</div>
+<!-- Received Message -->
+<div class="flex gap-4 max-w-[80%]">
+<div class="w-8 h-8 rounded-full overflow-hidden shrink-0 bg-surface-variant mt-auto">
+<img alt="Eleanor Vance" class="w-full h-full object-cover" data-alt="Professional headshot of a young woman smiling" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD07tCylQz33zo36Gr60AMjxIlN54ADaJdA_pCaRvveunljoCqgtJK-_GSXteXGRDJWl5gjdVhYBvrIJ9Gtd-92HH8-hmn3V0LNicr_QJ1eAH51Tve8SdYFRPb-xPFi2nP-J5f53x86Rg3kKqJftCk_dS-qYpyA7O-ntfFK-OmF88nqmZAnrl15tVFewLugXNDlcY3tk2vj-jI39xhSmh4A9EOhslPOhV-bl_6_6jEnd3gnuNxrISY1k7afHRQqQhAvXwu7TFFfRMA"/>
+</div>
+<div>
+<div class="bg-surface-container-highest rounded-2xl rounded-bl-sm p-4 text-on-background font-inter text-sm leading-relaxed">
+<p>Yes, Thursday afternoon works perfectly. Could we say 2:00 PM?</p>
+</div>
+<span class="font-inter text-xs text-on-surface-variant mt-1 block ml-2">10:42 AM</span>
+</div>
+</div>
+</div>
+<!-- Compose Area -->
+<div class="p-6 bg-surface-container-lowest shrink-0 relative z-10 border-t border-outline-variant/15">
+<div class="flex items-end gap-4 bg-surface-container-low rounded-xl p-2 focus-within:ring-2 focus-within:ring-primary/40 transition-all border border-transparent focus-within:border-primary/20">
+<button class="p-2 text-on-surface-variant hover:text-primary transition-colors shrink-0 mb-1">
+<span class="material-symbols-outlined" data-icon="add_circle">add_circle</span>
+</button>
+<textarea class="flex-1 bg-transparent border-none focus:ring-0 resize-none max-h-32 min-h-[44px] py-3 text-sm font-inter text-on-background placeholder:text-on-surface-variant" placeholder="Type your message..." rows="1"></textarea>
+<div class="flex gap-2 shrink-0 mb-1">
+<button class="p-2 text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="sentiment_satisfied">sentiment_satisfied</span>
+</button>
+<button class="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-primary-container text-on-primary flex items-center justify-center hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined text-sm" data-icon="send">send</span>
+</button>
+</div>
+</div>
+<div class="flex justify-between items-center mt-3 px-2">
+<div class="flex gap-4">
+<button class="text-xs font-inter text-on-surface-variant hover:text-primary flex items-center gap-1 transition-colors">
+<span class="material-symbols-outlined text-[16px]" data-icon="description">description</span>
+                            Attach File
+                        </button>
+<button class="text-xs font-inter text-on-surface-variant hover:text-primary flex items-center gap-1 transition-colors">
+<span class="material-symbols-outlined text-[16px]" data-icon="calendar_month">calendar_month</span>
+                            Schedule
+                        </button>
+</div>
+<span class="text-xs font-inter text-outline">Press Enter to send, Shift+Enter for new line</span>
+</div>
+</div>
+</section>
+</main>
+</body></html>

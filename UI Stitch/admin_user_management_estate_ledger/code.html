@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>User Management - Estate Ledger</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "primary-fixed-dim": "#adc7f7",
+                      "on-surface-variant": "#43474e",
+                      "error": "#ba1a1a",
+                      "surface-tint": "#455f88",
+                      "on-surface": "#181c1e",
+                      "on-error-container": "#93000a",
+                      "primary": "#002045",
+                      "on-tertiary": "#ffffff",
+                      "background": "#f7fafc",
+                      "on-tertiary-fixed-variant": "#3c475a",
+                      "outline-variant": "#c4c6cf",
+                      "secondary": "#006a68",
+                      "surface-variant": "#e0e3e5",
+                      "on-secondary-container": "#006e6d",
+                      "inverse-surface": "#2d3133",
+                      "on-background": "#181c1e",
+                      "surface-dim": "#d7dadc",
+                      "on-primary-fixed": "#001b3c",
+                      "secondary-fixed": "#94f2f0",
+                      "on-primary-container": "#86a0cd",
+                      "tertiary": "#162132",
+                      "on-secondary-fixed": "#00201f",
+                      "on-error": "#ffffff",
+                      "inverse-on-surface": "#eef1f3",
+                      "on-tertiary-fixed": "#111c2c",
+                      "error-container": "#ffdad6",
+                      "primary-container": "#1a365d",
+                      "surface-container-highest": "#e0e3e5",
+                      "tertiary-fixed": "#d8e3fa",
+                      "surface": "#f7fafc",
+                      "on-primary-fixed-variant": "#2d476f",
+                      "surface-container": "#ebeef0",
+                      "on-secondary": "#ffffff",
+                      "secondary-fixed-dim": "#77d6d3",
+                      "surface-container-low": "#f1f4f6",
+                      "outline": "#74777f",
+                      "on-primary": "#ffffff",
+                      "secondary-container": "#91f0ed",
+                      "primary-fixed": "#d6e3ff",
+                      "on-tertiary-container": "#949fb4",
+                      "surface-bright": "#f7fafc",
+                      "on-secondary-fixed-variant": "#00504e",
+                      "tertiary-fixed-dim": "#bcc7dd",
+                      "tertiary-container": "#2b3648",
+                      "surface-container-lowest": "#ffffff",
+                      "inverse-primary": "#adc7f7",
+                      "surface-container-high": "#e5e9eb"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {},
+              "fontFamily": {
+                      "headline": [
+                              "Manrope"
+                      ],
+                      "body": [
+                              "Inter"
+                      ],
+                      "label": [
+                              "Inter"
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+</head>
+<body class="bg-background text-on-surface font-body antialiased flex h-screen overflow-hidden selection:bg-primary selection:text-on-primary">
+<!-- SideNavBar -->
+<aside class="bg-slate-50 dark:bg-slate-950 h-screen w-64 fixed left-0 top-0 z-40 flex flex-col p-6 gap-4 border-r border-slate-200/50 dark:border-slate-800/50">
+<div class="mb-8">
+<div class="flex items-center gap-3">
+<img alt="Estate Ledger Logo" class="w-10 h-10 rounded-lg object-cover" data-alt="Abstract architectural building detail in deep navy and teal, geometric and modern" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDq-WBNMgsulxU-a2gllHFkuiQyehkqp_vhp8ppyNGDynYBzgmUZDoW9rs0BL0oBmlWuIE6ldCr8xyqjREnL-oeq3byjlljkyv0ZeC2YYdX5x5pkK4mFZdrI90UjoCDCfjoOYfDaBMGwumSO2cFL-diYC3ad_0lbNH_G8Kq0IedipYlfuG6Ks_H2rF_n_9wXHWbuAkCAuQG_VVbKQPZOIysBd9HanuLUDeHEqYmp0oLgox-By_--Je8G-5XtmxPeqtEJixOmramEO8"/>
+<div>
+<h1 class="font-headline text-lg font-bold text-blue-900 dark:text-blue-400">Management</h1>
+<p class="font-body text-xs text-on-surface-variant">Admin Console</p>
+</div>
+</div>
+</div>
+<button class="w-full bg-gradient-to-br from-primary to-primary-container text-on-primary font-body text-sm font-medium py-3 px-4 rounded-full flex items-center justify-center gap-2 hover:opacity-90 transition-opacity mb-4">
+<span class="material-symbols-outlined text-lg" data-icon="add">add</span>
+            Add Property
+        </button>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg font-headline text-sm font-medium hover:translate-x-1 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined text-xl" data-icon="domain">domain</span>
+                Inventory
+            </a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg font-headline text-sm font-medium hover:translate-x-1 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined text-xl" data-icon="analytics">analytics</span>
+                Analytics
+            </a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg font-headline text-sm font-medium hover:translate-x-1 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined text-xl" data-icon="fact_check">fact_check</span>
+                Approvals
+            </a>
+<a class="flex items-center gap-3 px-3 py-2.5 bg-white dark:bg-slate-900 text-teal-700 dark:text-teal-400 shadow-sm rounded-lg font-headline text-sm font-medium scale-98 transition-transform" href="#">
+<span class="material-symbols-outlined text-xl" data-icon="group" data-weight="fill" style="font-variation-settings: 'FILL' 1;">group</span>
+                Users
+            </a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg font-headline text-sm font-medium hover:translate-x-1 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined text-xl" data-icon="description">description</span>
+                Reports
+            </a>
+</nav>
+<div class="mt-auto pt-4 border-t border-surface-variant/30">
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg font-headline text-sm font-medium hover:translate-x-1 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined text-xl" data-icon="help">help</span>
+                Help Center
+            </a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-64 flex-1 h-screen overflow-y-auto bg-surface relative">
+<!-- TopNavBar (Web only, mobile hidden by layout choice for admin) -->
+<header class="bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl docked full-width top-0 sticky z-50 flat no shadows flex justify-between items-center px-8 h-20 w-full max-w-screen-2xl mx-auto border-b border-surface-variant/30 hidden md:flex">
+<div class="flex items-center gap-6">
+<!-- Branding is in sidebar for admin, top nav holds page context -->
+<h2 class="font-headline font-bold tracking-tight text-xl text-primary">User Management</h2>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-sm group-focus-within:text-primary transition-colors" data-icon="search">search</span>
+<input class="w-72 bg-surface-container-highest border-0 rounded-full py-2 pl-9 pr-4 text-sm font-body text-on-surface placeholder:text-on-surface-variant/70 focus:ring-0 focus:border-0 focus:outline-none focus:shadow-[0_0_0_2px_rgba(0,32,69,0.4)] transition-shadow" placeholder="Search users by name, email..." type="text"/>
+</div>
+<div class="flex items-center gap-2">
+<button class="p-2 text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800/50 rounded-full transition-colors flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800/50 rounded-full transition-colors flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+<img alt="Admin Profile" class="w-9 h-9 rounded-full object-cover ml-2 border border-surface-variant" data-alt="Portrait of a professional man in a dark blazer against a soft grey background, confident expression" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD4qiclkvhSflPtnyIIty4gABG9M9qlA5abM1-Vk3sBblF1hWwxBqxJbGM14JmFCYKr3U7B-Ow5n7pSfYurUJvh0JCYO98_wZYG2vnWLqbXd3pD5lp7hITs8l_keTEjNVirv2q7tzkVlpI3Y-VBg4FLTice4RXQYHRfGptFY04Uff_cYWDMOHI1S3se0Tr01Q6j173CP3QCqnV2tuSvPG6syuCh02JTIKmgu-VmoOfDhYcdvrMFEXw0ST9za9KA4UOEOs-_cwOe7uE"/>
+</div>
+</div>
+</header>
+<div class="max-w-screen-2xl mx-auto px-8 py-8">
+<!-- Page Header area -->
+<div class="flex justify-between items-end mb-8">
+<div class="max-w-2xl">
+<h2 class="font-headline text-3xl font-extrabold tracking-tight text-primary mb-2" style="letter-spacing: -0.02em;">System Users</h2>
+<p class="font-body text-on-surface-variant text-base">Manage access, roles, and status for all personnel within the Estate Ledger ecosystem.</p>
+</div>
+<div class="flex gap-3">
+<button class="px-4 py-2 rounded-full border border-outline-variant/30 bg-surface-container-lowest text-primary font-body text-sm font-medium hover:bg-surface-container-low transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="filter_list">filter_list</span>
+                        Filter
+                    </button>
+<button class="px-4 py-2 rounded-full border border-outline-variant/30 bg-surface-container-lowest text-primary font-body text-sm font-medium hover:bg-surface-container-low transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="download">download</span>
+                        Export
+                    </button>
+</div>
+</div>
+<!-- Bento Grid Metrics -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-10">
+<div class="bg-surface-container-lowest rounded-xl p-6 hover:bg-surface-container-high transition-colors duration-300">
+<div class="flex items-center gap-3 mb-4">
+<div class="w-10 h-10 rounded-full bg-primary-fixed-dim/20 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+</div>
+<h3 class="font-label text-sm text-on-surface-variant">Total Users</h3>
+</div>
+<div class="font-headline text-3xl font-bold text-primary">1,248</div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-6 hover:bg-surface-container-high transition-colors duration-300">
+<div class="flex items-center gap-3 mb-4">
+<div class="w-10 h-10 rounded-full bg-secondary-fixed/30 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined" data-icon="shield_person">shield_person</span>
+</div>
+<h3 class="font-label text-sm text-on-surface-variant">Active Agents</h3>
+</div>
+<div class="font-headline text-3xl font-bold text-primary">892</div>
+<div class="mt-2 flex items-center gap-1 text-xs text-secondary font-medium">
+<span class="material-symbols-outlined text-[14px]" data-icon="trending_up">trending_up</span>
+                        +12 this month
+                    </div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-6 hover:bg-surface-container-high transition-colors duration-300">
+<div class="flex items-center gap-3 mb-4">
+<div class="w-10 h-10 rounded-full bg-surface-variant flex items-center justify-center text-on-surface">
+<span class="material-symbols-outlined" data-icon="manage_accounts">manage_accounts</span>
+</div>
+<h3 class="font-label text-sm text-on-surface-variant">Pending Approvals</h3>
+</div>
+<div class="font-headline text-3xl font-bold text-primary">14</div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-6 hover:bg-surface-container-high transition-colors duration-300 relative overflow-hidden">
+<div class="absolute -right-4 -bottom-4 opacity-5">
+<span class="material-symbols-outlined text-[120px]" data-icon="admin_panel_settings">admin_panel_settings</span>
+</div>
+<div class="flex items-center gap-3 mb-4 relative z-10">
+<div class="w-10 h-10 rounded-full bg-error-container flex items-center justify-center text-on-error-container">
+<span class="material-symbols-outlined" data-icon="person_off">person_off</span>
+</div>
+<h3 class="font-label text-sm text-on-surface-variant">Deactivated</h3>
+</div>
+<div class="font-headline text-3xl font-bold text-primary relative z-10">34</div>
+</div>
+</div>
+<!-- Data Table Section -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden">
+<div class="overflow-x-auto">
+<table class="w-full text-left font-body">
+<thead>
+<tr class="bg-surface-container-high">
+<th class="py-4 px-6 font-label text-sm font-semibold text-on-surface uppercase tracking-wider">User</th>
+<th class="py-4 px-6 font-label text-sm font-semibold text-on-surface uppercase tracking-wider">ID</th>
+<th class="py-4 px-6 font-label text-sm font-semibold text-on-surface uppercase tracking-wider">Role</th>
+<th class="py-4 px-6 font-label text-sm font-semibold text-on-surface uppercase tracking-wider">Status</th>
+<th class="py-4 px-6 font-label text-sm font-semibold text-on-surface uppercase tracking-wider text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y-0">
+<!-- Row 1 -->
+<tr class="bg-surface group">
+<td class="py-5 px-6">
+<div class="flex items-center gap-4">
+<img alt="Sarah Jenkins" class="w-10 h-10 rounded-full object-cover" data-alt="Professional headshot of a smiling woman with glasses in a bright corporate office setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqTaQq0bnfqXXEur8S3Ps76PwM-sWf7XsADlj3h1xPsU7OIfq1G11E7BDQZQSOZn4FZ4YomrDv3Rtz84uskWjBfE0ZbKupvDJOeud9En7VLT51WwjDMt58u-xcEEa-3vCWklfujsJf49Dc2MYu-Z8txPz_GmpAppeU2Anc_kQEHhgrrow97ye1W8nEZEZTI2Rw6d2J8BFbwS7d0L2-NsUtP0R4OYIqRhY1FeV2XHnjB5brccs0hEWl1Dlp6msG4Os2evWr1OTRhyw"/>
+<div>
+<div class="font-medium text-primary text-sm">Sarah Jenkins</div>
+<div class="text-xs text-on-surface-variant mt-0.5">sarah.j@estateledger.com</div>
+</div>
+</div>
+</td>
+<td class="py-5 px-6">
+<span class="font-mono text-xs text-on-surface-variant bg-surface-container py-1 px-2 rounded">USR-8821</span>
+</td>
+<td class="py-5 px-6">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-sm text-secondary" data-icon="real_estate_agent">real_estate_agent</span>
+<span class="text-sm text-on-surface">Senior Agent</span>
+</div>
+</td>
+<td class="py-5 px-6">
+<span class="inline-flex items-center gap-1.5 py-1 px-2.5 rounded-full bg-secondary-fixed/30 text-on-secondary-fixed-variant text-xs font-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                                        Active
+                                    </span>
+</td>
+<td class="py-5 px-6 text-right">
+<div class="flex justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-1.5 text-on-surface-variant hover:text-primary rounded-lg hover:bg-surface-container-low transition-colors" title="Edit Role">
+<span class="material-symbols-outlined text-[20px]" data-icon="edit">edit</span>
+</button>
+<button class="p-1.5 text-on-surface-variant hover:text-error rounded-lg hover:bg-error-container transition-colors" title="Deactivate Account">
+<span class="material-symbols-outlined text-[20px]" data-icon="block">block</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="bg-surface-container-low group">
+<td class="py-5 px-6">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-primary-fixed text-primary-container flex items-center justify-center font-headline font-bold text-sm">
+                                            MR
+                                        </div>
+<div>
+<div class="font-medium text-primary text-sm">Marcus Rodriguez</div>
+<div class="text-xs text-on-surface-variant mt-0.5">m.rodriguez@estateledger.com</div>
+</div>
+</div>
+</td>
+<td class="py-5 px-6">
+<span class="font-mono text-xs text-on-surface-variant bg-surface-container py-1 px-2 rounded">USR-8845</span>
+</td>
+<td class="py-5 px-6">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-sm text-primary" data-icon="admin_panel_settings">admin_panel_settings</span>
+<span class="text-sm text-on-surface">Regional Manager</span>
+</div>
+</td>
+<td class="py-5 px-6">
+<span class="inline-flex items-center gap-1.5 py-1 px-2.5 rounded-full bg-secondary-fixed/30 text-on-secondary-fixed-variant text-xs font-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                                        Active
+                                    </span>
+</td>
+<td class="py-5 px-6 text-right">
+<div class="flex justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-1.5 text-on-surface-variant hover:text-primary rounded-lg hover:bg-surface-container-low transition-colors" title="Edit Role">
+<span class="material-symbols-outlined text-[20px]" data-icon="edit">edit</span>
+</button>
+<button class="p-1.5 text-on-surface-variant hover:text-error rounded-lg hover:bg-error-container transition-colors" title="Deactivate Account">
+<span class="material-symbols-outlined text-[20px]" data-icon="block">block</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="bg-surface group">
+<td class="py-5 px-6">
+<div class="flex items-center gap-4">
+<img alt="Elena Vance" class="w-10 h-10 rounded-full object-cover grayscale opacity-60" data-alt="Portrait of a young professional woman with warm natural lighting and soft blurred background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAGTIpnhqk96I-FayLFYx0hMtoMvQv7ghzDLWGBPWMX9-lqVXa1OOiexhvJ8hxfqkk6dG3UoLHhnx32VrlUb87OvR7_fPxJhZZwmOhNaDMaCNiyY9Hc8bQStYNSCdz5LuQYDAPbPTc5P4sh0BapZANNPQeBQ9IBvQWhsrI3FE1oPwcE6D_gz5gu-E-5eWx08SGdFdOSYlwmuTkUgM1bqDUL0mhfo0TffuUEWcaj4ApVQ8UJc6ARn0IUNYigkUERf9sgwkWix496R0A"/>
+<div>
+<div class="font-medium text-on-surface-variant text-sm line-through">Elena Vance</div>
+<div class="text-xs text-on-surface-variant/70 mt-0.5">elena.v@estateledger.com</div>
+</div>
+</div>
+</td>
+<td class="py-5 px-6">
+<span class="font-mono text-xs text-on-surface-variant/70 bg-surface-container py-1 px-2 rounded">USR-8102</span>
+</td>
+<td class="py-5 px-6">
+<div class="flex items-center gap-2 opacity-60">
+<span class="material-symbols-outlined text-sm text-on-surface-variant" data-icon="real_estate_agent">real_estate_agent</span>
+<span class="text-sm text-on-surface-variant">Junior Agent</span>
+</div>
+</td>
+<td class="py-5 px-6">
+<span class="inline-flex items-center gap-1.5 py-1 px-2.5 rounded-full bg-error-container/50 text-on-error-container text-xs font-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span>
+                                        Inactive
+                                    </span>
+</td>
+<td class="py-5 px-6 text-right">
+<div class="flex justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-1.5 text-on-surface-variant hover:text-primary rounded-lg hover:bg-surface-container-low transition-colors" title="Edit Role">
+<span class="material-symbols-outlined text-[20px]" data-icon="edit">edit</span>
+</button>
+<button class="p-1.5 text-on-surface-variant hover:text-secondary rounded-lg hover:bg-secondary-container transition-colors" title="Activate Account">
+<span class="material-symbols-outlined text-[20px]" data-icon="check_circle">check_circle</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination -->
+<div class="border-t border-outline-variant/15 px-6 py-4 flex items-center justify-between bg-surface-container-lowest">
+<span class="text-sm font-body text-on-surface-variant">Showing 1 to 3 of 1,248 entries</span>
+<div class="flex gap-1">
+<button class="w-8 h-8 rounded flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-colors disabled:opacity-50" disabled="">
+<span class="material-symbols-outlined text-sm" data-icon="chevron_left">chevron_left</span>
+</button>
+<button class="w-8 h-8 rounded flex items-center justify-center bg-primary text-on-primary text-sm font-medium">1</button>
+<button class="w-8 h-8 rounded flex items-center justify-center text-on-surface hover:bg-surface-container-high transition-colors text-sm font-medium">2</button>
+<button class="w-8 h-8 rounded flex items-center justify-center text-on-surface hover:bg-surface-container-high transition-colors text-sm font-medium">3</button>
+<span class="w-8 h-8 flex items-center justify-center text-on-surface-variant">...</span>
+<button class="w-8 h-8 rounded flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>
