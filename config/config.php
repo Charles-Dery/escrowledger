@@ -8,7 +8,7 @@ define('DB_NAME', getenv('DB_NAME'));
 
 // URL Configuration
 define('APPROOT', dirname(dirname(__FILE__)));
-define('URLROOT', 'http://localhost:8888/real-estate-ms');
+define('BASE_URL', 'https://escrowledger-1.onrender.com/');
 define('SITENAME', 'Real Estate MS');
 
 // Helper functions for session and flash messages
