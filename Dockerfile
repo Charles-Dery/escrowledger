@@ -9,5 +9,4 @@ WORKDIR /var/www/html/public
 # Install mysqli extension for MySQL
 RUN docker-php-ext-install mysqli
 
-# Expose port 80 for web traffic
 EXPOSE 80
