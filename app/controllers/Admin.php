@@ -135,6 +135,21 @@ class Admin extends Controller {
         $this->view('admin/analytics', $data);
     }
 
+    public function delete_property($id) {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $this->propertyModel->deletePropertyImages($id);
+
+            if ($this->propertyModel->deleteProperty($id)) {
+                flash('property_message', 'Property Deleted Successfully');
+                redirect('admin/property_catalog');
+            } else {
+                die('Something went wrong');
+            }
+        } else {
+            redirect('admin/property_catalog');
+        }
+    }
+
     public function add_property() {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $_POST = filter_input_array(INPUT_POST, FILTER_DEFAULT);
