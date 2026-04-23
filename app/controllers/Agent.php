@@ -33,27 +33,18 @@ class Agent extends Controller {
 
     public function inventory() {
         $properties = $this->propertyModel->getPropertiesByAgent($_SESSION['user_id']);
-        
-        $data = [
-            'properties' => $properties
-        ];
-
+        $data = ['properties' => $properties];
         $this->view('agent/inventory', $data);
     }
 
     public function inquiries() {
         $inquiries = $this->propertyModel->getInquiriesByAgent($_SESSION['user_id']);
-        
-        $data = [
-            'inquiries' => $inquiries
-        ];
-
+        $data = ['inquiries' => $inquiries];
         $this->view('agent/inquiries', $data);
     }
 
     public function delete($id) {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            // Get property to check ownership
             $property = $this->propertyModel->getPropertyById($id);
             if ($property->agent_id != $_SESSION['user_id']) {
                 redirect('agent/dashboard');
@@ -72,7 +63,7 @@ class Agent extends Controller {
 
     public function add_property() {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+            $_POST = filter_input_array(INPUT_POST, FILTER_DEFAULT);
 
             $uploadedImages = [];
             $imageFields = ['image_file_1', 'image_file_2', 'image_file_3', 'image_file_4', 'image_file_5'];
@@ -173,8 +164,7 @@ class Agent extends Controller {
 
     public function edit_property($id) {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            // Sanitize POST data
-            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+            $_POST = filter_input_array(INPUT_POST, FILTER_DEFAULT);
 
             $data = [
                 'id' => $id,
@@ -195,7 +185,6 @@ class Agent extends Controller {
                 'image_url' => trim($_POST['image_url'])
             ];
 
-            // Validate data (simplified)
             if (!empty($data['title']) && !empty($data['price'])) {
                 if ($this->propertyModel->updateProperty($data)) {
                     if (!empty($data['image_url'])) {
@@ -213,15 +202,12 @@ class Agent extends Controller {
                 $this->view('agent/edit_property', $data);
             }
         } else {
-            // Get existing property from model
             $property = $this->propertyModel->getPropertyById($id);
 
-            // Check ownership
             if ($property->agent_id != $_SESSION['user_id']) {
                 redirect('agent/inventory');
             }
 
-            // Get images
             $images = $this->propertyModel->getPropertyImages($id);
             $image_url = !empty($images) ? $images[0]->image_url : '';
 
