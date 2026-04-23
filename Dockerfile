@@ -1,6 +1,6 @@
 FROM php:8.2-apache
 
-# Copy all project files into Apache’s web root
+# Copy all project files into Apache's web root
 COPY . /var/www/html/
 
 # Set working directory to public folder (where index.php lives)
@@ -15,7 +15,7 @@ RUN echo '<VirtualHost *:80>\n\
         Require all granted\n\
     </Directory>\n\
 </VirtualHost>' > /etc/apache2/sites-available/000-default.conf \
-    && docker-php-ext-install mysqli \
+    && docker-php-ext-install mysqli pdo pdo_mysql \
     && a2enmod rewrite
 
 # Expose port 80 for web traffic
