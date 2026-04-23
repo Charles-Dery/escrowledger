@@ -1,9 +1,10 @@
 <?php
 // Database Configuration
-define('DB_HOST', 'localhost:8889');
-define('DB_USER', 'root');
-define('DB_PASS', 'root');
-define('DB_NAME', 'real_estate_ms');
+define('DB_HOST', getenv('DB_HOST'));
+define('DB_USER', getenv('DB_USER'));
+define('DB_PASS', getenv('DB_PASS'));
+define('DB_NAME', getenv('DB_NAME'));
+
 
 // URL Configuration
 define('APPROOT', dirname(dirname(__FILE__)));
