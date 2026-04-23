@@ -19,7 +19,6 @@ class Admin extends Controller {
     }
 
     public function dashboard() {
-        // Fetch real stats
         $users = $this->userModel->getUsers();
         $totalUsers = count($users);
         $activeAgents = 0;
@@ -37,7 +36,7 @@ class Admin extends Controller {
             'active_agents' => $activeAgents,
             'pending_approvals' => $pendingApprovals,
             'active_listings' => $activeListings,
-            'total_revenue' => 45800000, // Mock for now
+            'total_revenue' => 45800000,
             'monthly_growth' => 12.5,
             'avg_close_time' => 24
         ];
@@ -48,7 +47,6 @@ class Admin extends Controller {
     public function users() {
         $users = $this->userModel->getUsers();
         
-        // Calculate stats
         $totalUsers = count($users);
         $activeAgents = 0;
         $deactivated = 0;
@@ -91,7 +89,6 @@ class Admin extends Controller {
     }
 
     public function approvals() {
-        // Fetch properties that are 'pending'
         $pendingProperties = $this->propertyModel->getPropertiesByStatus('pending');
 
         $data = [
@@ -115,8 +112,6 @@ class Admin extends Controller {
 
     public function reject($id) {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            // For now, let's just delete or mark as rejected
-            // Let's assume we delete it for this demo
             if ($this->propertyModel->deleteProperty($id)) {
                 flash('approval_message', 'Property Rejected');
                 redirect('admin/approvals');
@@ -134,7 +129,7 @@ class Admin extends Controller {
             'total_revenue' => $totalRevenue,
             'monthly_growth' => 12.5,
             'active_listings' => $activeListings,
-            'avg_close_time' => 24 // days
+            'avg_close_time' => 24
         ];
 
         $this->view('admin/analytics', $data);
@@ -142,7 +137,7 @@ class Admin extends Controller {
 
     public function add_property() {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+            $_POST = filter_input_array(INPUT_POST, FILTER_DEFAULT);
 
             $uploadedImages = [];
             $imageFields = ['image_file_1', 'image_file_2', 'image_file_3', 'image_file_4', 'image_file_5'];
@@ -293,7 +288,6 @@ class Admin extends Controller {
             $buyer->transactions = $this->propertyModel->getTransactionsByBuyer($buyer->id);
             $buyer->saved_properties = $this->propertyModel->getSavedHouses($buyer->id);
 
-            // Calculate totals
             $totalPaid = 0;
             $totalSpent = 0;
             foreach($buyer->balance_history as $bh) {
@@ -324,7 +318,7 @@ class Admin extends Controller {
 
     public function assign_purchase($buyerId = null) {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+            $_POST = filter_input_array(INPUT_POST, FILTER_DEFAULT);
 
             $buyer_id = trim($_POST['buyer_id']);
             $property_id = trim($_POST['property_id']);
@@ -369,7 +363,7 @@ class Admin extends Controller {
             redirect('admin/transactions');
         }
 
-        $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+        $_POST = filter_input_array(INPUT_POST, FILTER_DEFAULT);
 
         $transaction = $this->propertyModel->getTransactionById($transactionId);
         if (!$transaction) {
@@ -434,7 +428,7 @@ class Admin extends Controller {
         }
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+            $_POST = filter_input_array(INPUT_POST, FILTER_DEFAULT);
 
             $data = [
                 'id' => $id,
@@ -468,7 +462,7 @@ class Admin extends Controller {
         $buyer->balance_history = $this->propertyModel->getBalanceHistory($id);
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+            $_POST = filter_input_array(INPUT_POST, FILTER_DEFAULT);
 
             if (isset($_POST['update_financial'])) {
                 $data = [
