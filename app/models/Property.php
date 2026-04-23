@@ -6,7 +6,6 @@ class Property {
         $this->db = new Database;
     }
 
-    // Get all properties
     public function getProperties() {
         $this->db->query('SELECT properties.*, users.name as agent_name 
                           FROM properties 
@@ -15,7 +14,6 @@ class Property {
         return $this->db->resultSet();
     }
 
-    // Get property by ID
     public function getPropertyById($id) {
         $this->db->query('SELECT properties.*, users.name as agent_name 
                           FROM properties 
@@ -25,42 +23,18 @@ class Property {
         return $this->db->single();
     }
 
-    // Get images for a property
     public function getPropertyImages($id) {
         $this->db->query('SELECT * FROM property_images WHERE property_id = :id');
         $this->db->bind(':id', $id);
-        $images = $this->db->resultSet();
-        $valid = [];
-        foreach ($images as $img) {
-            if (empty($img->image_url)) {
-                continue;
-            }
-
-            $path = parse_url($img->image_url, PHP_URL_PATH);
-            if (!empty($path) && strpos($path, '/images/') !== false) {
-                $base = basename($path);
-                $candidates = [
-                    APPROOT . '/images/' . $base,
-                    APPROOT . '/public/images/' . $base
-                ];
-                $exists = false;
-                foreach ($candidates as $f) {
-                    if (is_file($f)) {
-                        $exists = true;
-                        break;
-                    }
-                }
-                if (!$exists) {
-                    continue;
-                }
-            }
-
-            $valid[] = $img;
-        }
-        return $valid;
+        return $this->db->resultSet();
     }
 
-    // Get saved houses for a buyer
+    public function deletePropertyImages($id) {
+        $this->db->query('DELETE FROM property_images WHERE property_id = :id');
+        $this->db->bind(':id', $id);
+        return $this->db->execute();
+    }
+
     public function getSavedHouses($buyer_id) {
         $this->db->query('SELECT properties.*, saved_houses.id as saved_id 
                           FROM properties 
@@ -70,9 +44,7 @@ class Property {
         return $this->db->resultSet();
     }
 
-    // Save property for buyer
     public function saveProperty($buyer_id, $property_id) {
-        // Check if already saved
         $this->db->query('SELECT * FROM saved_houses WHERE buyer_id = :buyer_id AND property_id = :property_id');
         $this->db->bind(':buyer_id', $buyer_id);
         $this->db->bind(':property_id', $property_id);
@@ -88,7 +60,6 @@ class Property {
         return $this->db->execute();
     }
 
-    // Unsave property for buyer
     public function unsaveProperty($buyer_id, $property_id) {
         $this->db->query('DELETE FROM saved_houses WHERE buyer_id = :buyer_id AND property_id = :property_id');
         $this->db->bind(':buyer_id', $buyer_id);
@@ -96,21 +67,18 @@ class Property {
         return $this->db->execute();
     }
 
-    // Get balance history for a buyer
     public function getBalanceHistory($buyer_id) {
         $this->db->query('SELECT * FROM balance_history WHERE buyer_id = :buyer_id ORDER BY date DESC');
         $this->db->bind(':buyer_id', $buyer_id);
         return $this->db->resultSet();
     }
 
-    // Get properties by agent
     public function getPropertiesByAgent($agent_id) {
         $this->db->query('SELECT * FROM properties WHERE agent_id = :agent_id ORDER BY created_at DESC');
         $this->db->bind(':agent_id', $agent_id);
         return $this->db->resultSet();
     }
 
-    // Get recommended properties (random or based on some logic)
     public function getRecommendations($limit = 3) {
         $this->db->query('SELECT * FROM properties WHERE status = "available" ORDER BY RAND() LIMIT :limit');
         $this->db->bind(':limit', $limit);
@@ -126,7 +94,6 @@ class Property {
         return $this->db->resultSet();
     }
 
-    // Add property
     public function addProperty($data) {
         $status = isset($data['status']) ? $data['status'] : 'available';
         $bedrooms = ($data['bedrooms'] === '' || $data['bedrooms'] === null) ? null : $data['bedrooms'];
@@ -160,7 +127,6 @@ class Property {
         }
     }
 
-    // Add property image
     public function addPropertyImage($data) {
         $this->db->query('INSERT INTO property_images (property_id, image_url) VALUES(:property_id, :image_url)');
         $this->db->bind(':property_id', $data['property_id']);
@@ -168,7 +134,6 @@ class Property {
         return $this->db->execute();
     }
 
-    // Update property
     public function updateProperty($data) {
         $bedrooms = ($data['bedrooms'] === '' || $data['bedrooms'] === null) ? null : $data['bedrooms'];
         $bathrooms = ($data['bathrooms'] === '' || $data['bathrooms'] === null) ? null : $data['bathrooms'];
@@ -195,9 +160,7 @@ class Property {
         return $this->db->execute();
     }
 
-    // Update or add property image (simple version for demo)
     public function updatePropertyImage($data) {
-        // Check if image exists
         $this->db->query('SELECT * FROM property_images WHERE property_id = :property_id LIMIT 1');
         $this->db->bind(':property_id', $data['property_id']);
         $this->db->single();
@@ -213,7 +176,6 @@ class Property {
         return $this->db->execute();
     }
 
-    // Get properties by status
     public function getPropertiesByStatus($status) {
         $this->db->query('SELECT properties.*, users.name as agent_name 
                           FROM properties 
@@ -224,7 +186,6 @@ class Property {
         return $this->db->resultSet();
     }
 
-    // Update property status
     public function updateStatus($id, $status) {
         $this->db->query('UPDATE properties SET status = :status WHERE id = :id');
         $this->db->bind(':status', $status);
@@ -232,14 +193,12 @@ class Property {
         return $this->db->execute();
     }
 
-    // Delete property
     public function deleteProperty($id) {
         $this->db->query('DELETE FROM properties WHERE id = :id');
         $this->db->bind(':id', $id);
         return $this->db->execute();
     }
 
-    // Get active transaction for a buyer
     public function getActiveTransaction($buyer_id) {
         $this->db->query('SELECT transactions.*, properties.title, properties.location 
                           FROM transactions 
@@ -252,7 +211,6 @@ class Property {
         return $this->db->single();
     }
 
-    // Search and filter properties
     public function searchProperties($filters) {
         $sql = 'SELECT * FROM properties WHERE status = "available"';
         
@@ -301,7 +259,6 @@ class Property {
         return $this->db->resultSet();
     }
 
-    // Create a transaction
     public function createTransaction($data) {
         $this->db->query('INSERT INTO transactions (property_id, buyer_id, agent_id, amount, status) 
                           VALUES(:property_id, :buyer_id, :agent_id, :amount, :status)');
@@ -344,7 +301,6 @@ class Property {
         return $this->db->rowCount() > 0;
     }
 
-    // Get inquiries for an agent
     public function getInquiriesByAgent($agent_id) {
         $this->db->query('SELECT transactions.*, properties.title, users.name as buyer_name, users.email as buyer_email 
                           FROM transactions 
@@ -356,7 +312,6 @@ class Property {
         return $this->db->resultSet();
     }
 
-    // Get total sales volume for an agent
     public function getTotalSalesByAgent($agent_id) {
         $this->db->query('SELECT SUM(amount) as total FROM transactions WHERE agent_id = :agent_id AND status = "completed"');
         $this->db->bind(':agent_id', $agent_id);
@@ -364,20 +319,17 @@ class Property {
         return $row->total ? $row->total : 0;
     }
 
-    // Get total revenue for admin
     public function getTotalRevenue() {
         $this->db->query('SELECT SUM(amount) as total FROM transactions WHERE status = "completed"');
         $row = $this->db->single();
         return $row->total ? $row->total : 0;
     }
 
-    // Get all properties (for admin)
     public function getAllProperties() {
         $this->db->query('SELECT * FROM properties ORDER BY created_at DESC');
         return $this->db->resultSet();
     }
 
-    // Get transactions by buyer
     public function getTransactionsByBuyer($buyer_id) {
         $this->db->query('SELECT transactions.*, properties.title as property_title
                           FROM transactions
@@ -388,13 +340,11 @@ class Property {
         return $this->db->resultSet();
     }
 
-    // Get all transactions (for admin)
     public function getAllTransactions() {
         $this->db->query('SELECT * FROM transactions ORDER BY transaction_date DESC');
         return $this->db->resultSet();
     }
 
-    // Add balance history entry
     public function addBalanceHistory($data) {
         $this->db->query('INSERT INTO balance_history (buyer_id, transaction_id, amount, type, description) VALUES(:buyer_id, :transaction_id, :amount, :type, :description)');
         $this->db->bind(':buyer_id', $data['buyer_id']);
@@ -405,14 +355,12 @@ class Property {
         return $this->db->execute();
     }
 
-    // Get balance history by ID
     public function getBalanceHistoryById($id) {
         $this->db->query('SELECT * FROM balance_history WHERE id = :id');
         $this->db->bind(':id', $id);
         return $this->db->single();
     }
 
-    // Update balance history entry
     public function updateBalanceHistory($data) {
         $this->db->query('UPDATE balance_history SET amount = :amount, type = :type, description = :description WHERE id = :id');
         $this->db->bind(':id', $data['id']);
@@ -422,7 +370,6 @@ class Property {
         return $this->db->execute();
     }
 
-    // Delete balance history entry
     public function deleteBalanceHistory($id) {
         $this->db->query('DELETE FROM balance_history WHERE id = :id');
         $this->db->bind(':id', $id);
