@@ -33,7 +33,6 @@
     </script>
 </head>
 <body class="bg-surface font-body text-on-surface antialiased flex h-screen overflow-hidden">
-<!-- SideNavBar (Generic for all roles, link back to respective dashboard) -->
 <aside class="hidden md:flex flex-col h-full py-8 px-4 w-64 fixed left-0 top-0 bg-slate-50 dark:bg-slate-950 font-manrope text-sm font-medium border-r border-outline-variant/15 z-40">
 <div class="mb-10 px-4">
 <h1 class="text-lg font-black text-slate-900 dark:text-slate-50 font-headline tracking-tight uppercase">Estate Ledger</h1>
@@ -86,7 +85,6 @@
 <div>
 <h3 class="font-headline font-extrabold text-2xl text-primary"><?php echo $_SESSION['user_name']; ?></h3>
 <p class="text-on-surface-variant font-medium capitalize"><?php echo $_SESSION['user_role']; ?> Account</p>
-<p class="text-xs text-on-surface-variant/70 mt-1">Member since <?php echo date('M Y'); ?></p>
 </div>
 </div>
 
